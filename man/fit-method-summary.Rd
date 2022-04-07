@@ -12,9 +12,12 @@
 summary(variables = NULL, ...)
 }
 \arguments{
-\item{variables}{(character vector) The variables to include.}
+\item{variables}{(character vector) The variables to include or \code{NULL} to
+include all variables.}
 
-\item{...}{Optional arguments to pass to \code{\link[posterior:draws_summary]{posterior::summarise_draws()}}.}
+\item{...}{Optional arguments to pass to
+\code{\link[posterior:draws_summary]{posterior::summarise_draws()}}. See
+\strong{Examples}.}
 }
 \value{
 The \verb{$summary()} method returns the tibble data frame created by
@@ -35,7 +38,7 @@ fitted model object itself. The \verb{$print()} method may also be faster than
 \verb{$summary()} because it is designed to only compute the summary statistics
 for the variables that will actually fit in the printed output whereas
 \verb{$summary()} will compute them for all of the specified variables in order
-to be able to return them to the user. See \strong{Examples}.
+to be able to return them to the user.
 }
 \examples{
 \dontrun{
@@ -46,14 +49,28 @@ fit$print(max_rows = 2) # same as print(fit, max_rows = 2)
 
 # include only certain variables
 fit$summary("beta")
-fit$print(c("alpha", "beta[2]"))
+fit$summary(c("alpha", "beta[2]"))
 
-# include all variables but only certain summaries
+# include all variables (using NULL) but only certain summaries
+# these three specifications are equivalent
+fit$summary(NULL, mean, sd)
+fit$summary(NULL, "mean", "sd")
 fit$summary(NULL, c("mean", "sd"))
+
+# provide custom names for summaries
+fit$summary(NULL, m = mean, med = median)
+
+# compute summaries using multiple cores
+fit$summary(NULL, mean, sd, .cores = 2)
 
 # can use functions created from formulas
 # for example, calculate Pr(beta > 0)
 fit$summary("beta", prob_gt_0 = ~ mean(. > 0))
+
+# calculate custom quantiles
+# the only differences between quantile and quantile2 are the column names
+fit$summary(variables = NULL, ~quantile(., probs = c(0.4, 0.6)))
+fit$summary(variables = NULL, ~posterior::quantile2(., probs = c(0.4, 0.6)))
 }
 
 }

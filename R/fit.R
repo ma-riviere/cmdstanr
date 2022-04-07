@@ -343,10 +343,14 @@ CmdStanFit$set("public", name = "lp", value = lp)
 #'   `$summary()` because it is designed to only compute the summary statistics
 #'   for the variables that will actually fit in the printed output whereas
 #'   `$summary()` will compute them for all of the specified variables in order
-#'   to be able to return them to the user. See **Examples**.
+#'   to be able to return them to the user.
 #'
-#' @param variables (character vector) The variables to include.
-#' @param ... Optional arguments to pass to [`posterior::summarise_draws()`][posterior::draws_summary].
+#' @param variables (character vector) The variables to include or `NULL` to
+#'   include all variables.
+#'
+#' @param ... Optional arguments to pass to
+#'   [`posterior::summarise_draws()`][posterior::draws_summary]. See
+#'   **Examples**.
 #'
 #' @return
 #' The `$summary()` method returns the tibble data frame created by
@@ -366,14 +370,28 @@ CmdStanFit$set("public", name = "lp", value = lp)
 #'
 #' # include only certain variables
 #' fit$summary("beta")
-#' fit$print(c("alpha", "beta[2]"))
+#' fit$summary(c("alpha", "beta[2]"))
 #'
-#' # include all variables but only certain summaries
+#' # include all variables (using NULL) but only certain summaries
+#' # these three specifications are equivalent
+#' fit$summary(NULL, mean, sd)
+#' fit$summary(NULL, "mean", "sd")
 #' fit$summary(NULL, c("mean", "sd"))
+#'
+#' # provide custom names for summaries
+#' fit$summary(NULL, m = mean, med = median)
+#'
+#' # compute summaries using multiple cores
+#' fit$summary(NULL, mean, sd, .cores = 2)
 #'
 #' # can use functions created from formulas
 #' # for example, calculate Pr(beta > 0)
 #' fit$summary("beta", prob_gt_0 = ~ mean(. > 0))
+#'
+#' # calculate custom quantiles
+#' # the only differences between quantile and quantile2 are the column names
+#' fit$summary(variables = NULL, ~quantile(., probs = c(0.4, 0.6)))
+#' fit$summary(variables = NULL, ~posterior::quantile2(., probs = c(0.4, 0.6)))
 #' }
 #'
 summary <- function(variables = NULL, ...) {
