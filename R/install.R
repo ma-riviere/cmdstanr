@@ -1,24 +1,24 @@
 #' Install CmdStan or clean and rebuild an existing installation
 #'
-#' @description The `install_cmdstan()` function attempts to download and
-#'   install the latest release of [CmdStan](https://github.com/stan-dev/cmdstan/releases/latest).
+#' @description `install_cmdstan()` attempts to download and install the latest
+#'   release of [CmdStan](https://github.com/stan-dev/cmdstan/releases/latest).
 #'   Installing a previous release or a new release candidate is also possible
 #'   by specifying the `version` or `release_url` argument.
 #'   See the first few sections of the CmdStan
 #'   [installation guide](https://mc-stan.org/docs/cmdstan-guide/cmdstan-installation.html)
 #'   for details on the C++ toolchain required for installing CmdStan.
 #'
-#'   The `rebuild_cmdstan()` function cleans and rebuilds the CmdStan
-#'   installation. Use this function in case of any issues when compiling models.
+#'   `rebuild_cmdstan()` cleans and rebuilds the CmdStan installation. Use this
+#'   function in case of any issues when compiling models.
 #'
-#'   The `cmdstan_make_local()` function is used to read/write makefile flags
+#'   `cmdstan_make_local()` is used to read/write makefile flags
 #'   and variables from/to the `make/local` file of a CmdStan installation.
 #'   Writing to the `make/local` file can be used to permanently add makefile
 #'   flags/variables to an installation. For example adding specific compiler
 #'   switches, changing the C++ compiler, etc. A change to the `make/local` file
 #'   should typically be followed by calling `rebuild_cmdstan()`.
 #'
-#'   The `check_cmdstan_toolchain()` function attempts to check for the required
+#'   `check_cmdstan_toolchain()` attempts to check for the required
 #'   C++ toolchain. It is called internally by `install_cmdstan()` but can also
 #'   be called directly by the user.
 #'

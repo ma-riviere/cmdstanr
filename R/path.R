@@ -12,7 +12,7 @@
 #'   `NULL` (the default) then the path is set to the default path used by
 #'   [install_cmdstan()] if it exists.
 #' @return A string. Either the file path to the CmdStan installation or the
-#'   CmdStan version number.
+#'   CmdStan version number (if available).
 #'
 #' @details
 #' Before the package can be used it needs to know where the CmdStan
@@ -64,8 +64,8 @@ cmdstan_path <- function() {
 #' @param error_on_NA (logical) Should an error be thrown if CmdStan is not
 #'   found. The default is `TRUE`. If `FALSE`, `cmdstan_version()` returns
 #'   `NULL`.
-#' @return CmdStan version string if available. If CmdStan is not found and
-#'   `error_on_NA` is `FALSE`, `cmdstan_version()` returns `NULL`.
+#' @return For `cmdstan_version()`, if CmdStan is not found and
+#'   `error_on_NA` is `FALSE`, `NULL` is returned.
 cmdstan_version <- function(error_on_NA = TRUE) {
   version <- .cmdstanr$VERSION
   if (is.null(version) && error_on_NA) {

@@ -777,9 +777,9 @@ CmdStanModel$set("public", name = "check_syntax", value = check_syntax)
 #' @aliases format
 #' @family CmdStanModel methods
 #'
-#' @description The `$format()` method of a [`CmdStanModel`] object
-#'   runs stanc's auto-formatter on the model code. Either saves the formatted
-#'   model directly back to the file or prints it for inspection.
+#' @description The `$format()` method of a [`CmdStanModel`] object runs Stan's
+#'   auto-formatter on the model code. The formatted model is either saved
+#'   directly back to the file or printed for inspection.
 #'
 #' @param overwrite_file (logical) Should the formatted code be written back
 #'   to the input model file. The default is `FALSE`.
@@ -787,7 +787,7 @@ CmdStanModel$set("public", name = "check_syntax", value = check_syntax)
 #'   should 'canonicalize' the Stan model, removing things like deprecated syntax.
 #'   Default is `FALSE`. If `TRUE`, all canonicalizations are run. You can also
 #'   supply a list of strings which represent options. In that case the options
-#'   are passed to stanc (new in Stan 2.29). See the [User's guide section](https://mc-stan.org/docs/stan-users-guide/stanc-pretty-printing.html#canonicalizing)
+#'   are passed to stanc (new in Stan 2.29). See the [User's guide](https://mc-stan.org/docs/stan-users-guide/stanc-pretty-printing.html#canonicalizing)
 #'   for available canonicalization options.
 #' @param backup (logical) If `TRUE`, create stanfile.bak backups before
 #'   writing to the file. Disable this option if you're sure you have other
@@ -931,10 +931,12 @@ CmdStanModel$set("public", name = "format", value = format)
 #'   Any argument left as `NULL` will default to the default value used by the
 #'   installed version of CmdStan. See the
 #'   [CmdStan User’s Guide](https://mc-stan.org/docs/cmdstan-guide/)
-#'   for more details.
+#'   for more details. The default values used for unspecified arguments are
+#'   available via the [`$metadata()`][fit-method-metadata] method after fitting
+#'   a model.
 #'
-#'   After model fitting any diagnostics specified via the `diagnostics`
-#'   argument will be checked and warnings will be printed if warranted.
+#'   After sampling, the diagnostics specified via the `diagnostics`
+#'   argument will be checked and warnings may be printed if warranted.
 #'
 #' @template model-common-args
 #' @template model-sample-args
