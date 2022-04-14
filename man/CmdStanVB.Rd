@@ -4,6 +4,7 @@
 \alias{CmdStanVB}
 \title{CmdStanVB objects}
 \description{
+\if{html}{\figure{logo.png}{options: width="100px" align="right"}}
 A \code{CmdStanVB} object is the fitted model object returned by the
 \code{\link[=model-method-variational]{$variational()}} method of a
 \code{\link{CmdStanModel}} object.

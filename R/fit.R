@@ -816,7 +816,8 @@ CmdStanFit$set("public", name = "code", value = code)
 #' @family fitted model objects
 #' @template seealso-docs
 #'
-#' @description A `CmdStanMCMC` object is the fitted model object returned by
+#' @description \if{html}{\figure{logo.png}{options: width="100px" align="right"}}
+#'   A `CmdStanMCMC` object is the fitted model object returned by
 #'   the [`$sample()`][model-method-sample] method of a [`CmdStanModel`] object.
 #'   Like `CmdStanModel` objects, `CmdStanMCMC` objects are [R6][R6::R6Class]
 #'   objects.
@@ -1276,7 +1277,8 @@ CmdStanMCMC$set("public", name = "num_chains", value = num_chains)
 #' @family fitted model objects
 #' @template seealso-docs
 #'
-#' @description A `CmdStanMLE` object is the fitted model object returned by the
+#' @description \if{html}{\figure{logo.png}{options: width="100px" align="right"}}
+#'   A `CmdStanMLE` object is the fitted model object returned by the
 #'   [`$optimize()`][model-method-optimize] method of a [`CmdStanModel`] object.
 #'
 #' @section Methods: `CmdStanMLE` objects have the following associated methods,
@@ -1376,7 +1378,8 @@ CmdStanMLE$set("public", name = "mle", value = mle)
 #' @family fitted model objects
 #' @template seealso-docs
 #'
-#' @description A `CmdStanVB` object is the fitted model object returned by the
+#' @description \if{html}{\figure{logo.png}{options: width="100px" align="right"}}
+#'   A `CmdStanVB` object is the fitted model object returned by the
 #'   [`$variational()`][model-method-variational] method of a
 #'   [`CmdStanModel`] object.
 #'
@@ -1450,7 +1453,8 @@ CmdStanVB$set("public", name = "lp_approx", value = lp_approx)
 #' @family fitted model objects
 #' @template seealso-docs
 #'
-#' @description A `CmdStanGQ` object is the fitted model object returned by the
+#' @description \if{html}{\figure{logo.png}{options: width="100px" align="right"}}
+#'   A `CmdStanGQ` object is the fitted model object returned by the
 #'   [`$generate_quantities()`][model-method-generate-quantities] method of a
 #'   [`CmdStanModel`] object.
 #'
@@ -1574,7 +1578,8 @@ CmdStanGQ <- R6::R6Class(
 #' @family fitted model objects
 #' @template seealso-docs
 #'
-#' @description A `CmdStanDiagnose` object is the object returned by the
+#' @description \if{html}{\figure{logo.png}{options: width="100px" align="right"}}
+#'   A `CmdStanDiagnose` object is the object returned by the
 #'   [`$diagnose()`][model-method-diagnose] method of a [`CmdStanModel`] object.
 #'
 #' @section Methods: `CmdStanDiagnose` objects have the following associated

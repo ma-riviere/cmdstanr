@@ -4,6 +4,7 @@
 \alias{CmdStanModel}
 \title{CmdStanModel objects}
 \description{
+\if{html}{\figure{logo.png}{options: width="100px" align="right"}}
 A \code{CmdStanModel} object is an \link[R6:R6Class]{R6} object created
 by the \code{\link[=cmdstan_model]{cmdstan_model()}} function. The object stores the path to a Stan
 program and compiled executable (once created), and provides methods for

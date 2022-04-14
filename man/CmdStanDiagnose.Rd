@@ -4,6 +4,7 @@
 \alias{CmdStanDiagnose}
 \title{CmdStanDiagnose objects}
 \description{
+\if{html}{\figure{logo.png}{options: width="100px" align="right"}}
 A \code{CmdStanDiagnose} object is the object returned by the
 \code{\link[=model-method-diagnose]{$diagnose()}} method of a \code{\link{CmdStanModel}} object.
 }

@@ -88,25 +88,25 @@ contents of \code{make/local} are returned without writing anything, otherwise
 the updated contents are returned.
 }
 \description{
-The \code{install_cmdstan()} function attempts to download and
-install the latest release of \href{https://github.com/stan-dev/cmdstan/releases/latest}{CmdStan}.
+\code{install_cmdstan()} attempts to download and install the latest
+release of \href{https://github.com/stan-dev/cmdstan/releases/latest}{CmdStan}.
 Installing a previous release or a new release candidate is also possible
 by specifying the \code{version} or \code{release_url} argument.
 See the first few sections of the CmdStan
 \href{https://mc-stan.org/docs/cmdstan-guide/cmdstan-installation.html}{installation guide}
 for details on the C++ toolchain required for installing CmdStan.
 
-The \code{rebuild_cmdstan()} function cleans and rebuilds the CmdStan
-installation. Use this function in case of any issues when compiling models.
+\code{rebuild_cmdstan()} cleans and rebuilds the CmdStan installation. Use this
+function in case of any issues when compiling models.
 
-The \code{cmdstan_make_local()} function is used to read/write makefile flags
+\code{cmdstan_make_local()} is used to read/write makefile flags
 and variables from/to the \code{make/local} file of a CmdStan installation.
 Writing to the \code{make/local} file can be used to permanently add makefile
 flags/variables to an installation. For example adding specific compiler
 switches, changing the C++ compiler, etc. A change to the \code{make/local} file
 should typically be followed by calling \code{rebuild_cmdstan()}.
 
-The \code{check_cmdstan_toolchain()} function attempts to check for the required
+\code{check_cmdstan_toolchain()} attempts to check for the required
 C++ toolchain. It is called internally by \code{install_cmdstan()} but can also
 be called directly by the user.
 }

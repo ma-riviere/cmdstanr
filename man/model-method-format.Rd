@@ -21,7 +21,7 @@ to the input model file. The default is \code{FALSE}.}
 should 'canonicalize' the Stan model, removing things like deprecated syntax.
 Default is \code{FALSE}. If \code{TRUE}, all canonicalizations are run. You can also
 supply a list of strings which represent options. In that case the options
-are passed to stanc (new in Stan 2.29). See the \href{https://mc-stan.org/docs/stan-users-guide/stanc-pretty-printing.html#canonicalizing}{User's guide section}
+are passed to stanc (new in Stan 2.29). See the \href{https://mc-stan.org/docs/stan-users-guide/stanc-pretty-printing.html#canonicalizing}{User's guide}
 for available canonicalization options.}
 
 \item{backup}{(logical) If \code{TRUE}, create stanfile.bak backups before
@@ -40,9 +40,9 @@ The \verb{$format()} method returns \code{TRUE} (invisibly) if the model
 is valid.
 }
 \description{
-The \verb{$format()} method of a \code{\link{CmdStanModel}} object
-runs stanc's auto-formatter on the model code. Either saves the formatted
-model directly back to the file or prints it for inspection.
+The \verb{$format()} method of a \code{\link{CmdStanModel}} object runs Stan's
+auto-formatter on the model code. The formatted model is either saved
+directly back to the file or printed for inspection.
 }
 \examples{
 \dontrun{

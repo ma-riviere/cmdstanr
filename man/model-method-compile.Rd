@@ -96,11 +96,13 @@ mod <- cmdstan_model(file, compile = FALSE)
 mod$compile()
 mod$exe_file()
 
-# turn on threading support (for using functions that support within-chain parallelization)
+# demonstrate turning on threading support
+# (won't actually help for this model because it doesn't use functions
+# that support within-chain parallelization)
 mod$compile(force_recompile = TRUE, cpp_options = list(stan_threads = TRUE))
 mod$exe_file()
 
-# turn on pedantic mode (new in Stan v2.24)
+# turn on pedantic mode
 file_pedantic <- write_stan_file("
 parameters {
   real sigma;  // pedantic mode will warn about missing <lower=0>
@@ -110,7 +112,6 @@ model {
 }
 ")
 mod <- cmdstan_model(file_pedantic, pedantic = TRUE)
-
 }
 
 }

@@ -273,10 +273,12 @@ main Markov chain Monte Carlo algorithm.
 Any argument left as \code{NULL} will default to the default value used by the
 installed version of CmdStan. See the
 \href{https://mc-stan.org/docs/cmdstan-guide/}{CmdStan User’s Guide}
-for more details.
+for more details. The default values used for unspecified arguments are
+available via the \code{\link[=fit-method-metadata]{$metadata()}} method after fitting
+a model.
 
-After model fitting any diagnostics specified via the \code{diagnostics}
-argument will be checked and warnings will be printed if warranted.
+After sampling, the diagnostics specified via the \code{diagnostics}
+argument will be checked and warnings may be printed if warranted.
 }
 \examples{
 \dontrun{

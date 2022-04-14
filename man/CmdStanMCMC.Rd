@@ -4,6 +4,7 @@
 \alias{CmdStanMCMC}
 \title{CmdStanMCMC objects}
 \description{
+\if{html}{\figure{logo.png}{options: width="100px" align="right"}}
 A \code{CmdStanMCMC} object is the fitted model object returned by
 the \code{\link[=model-method-sample]{$sample()}} method of a \code{\link{CmdStanModel}} object.
 Like \code{CmdStanModel} objects, \code{CmdStanMCMC} objects are \link[R6:R6Class]{R6}

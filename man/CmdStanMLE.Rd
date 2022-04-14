@@ -4,6 +4,7 @@
 \alias{CmdStanMLE}
 \title{CmdStanMLE objects}
 \description{
+\if{html}{\figure{logo.png}{options: width="100px" align="right"}}
 A \code{CmdStanMLE} object is the fitted model object returned by the
 \code{\link[=model-method-optimize]{$optimize()}} method of a \code{\link{CmdStanModel}} object.
 }

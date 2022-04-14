@@ -23,10 +23,10 @@ found. The default is \code{TRUE}. If \code{FALSE}, \code{cmdstan_version()} ret
 }
 \value{
 A string. Either the file path to the CmdStan installation or the
-CmdStan version number.
+CmdStan version number (if available).
 
-CmdStan version string if available. If CmdStan is not found and
-\code{error_on_NA} is \code{FALSE}, \code{cmdstan_version()} returns \code{NULL}.
+For \code{cmdstan_version()}, if CmdStan is not found and
+\code{error_on_NA} is \code{FALSE}, \code{NULL} is returned.
 }
 \description{
 Use the \code{set_cmdstan_path()} function to tell CmdStanR where the

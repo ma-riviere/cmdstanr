@@ -1,10 +1,10 @@
 #' Create a new CmdStanModel object
 #'
-#' @description \if{html}{\figure{logo.png}{options: width="25px"}}
+#' @description
 #'   Create a new [`CmdStanModel`] object from a file containing a Stan program
-#'   or from an existing Stan executable. The [`CmdStanModel`] object stores the
-#'   path to a Stan program and compiled executable (once created), and provides
-#'   methods for fitting the model using Stan's algorithms.
+#'   or from an existing Stan executable. The object stores the path to a Stan
+#'   program and compiled executable (once created), and provides methods for
+#'   fitting the model using Stan's algorithms.
 #'
 #'   See the `compile` and `...` arguments for control over whether and how
 #'   compilation happens.
@@ -162,7 +162,8 @@ cmdstan_model <- function(stan_file = NULL, exe_file = NULL, compile = TRUE, ...
 #' CmdStanModel objects
 #'
 #' @name CmdStanModel
-#' @description A `CmdStanModel` object is an [R6][R6::R6Class] object created
+#' @description \if{html}{\figure{logo.png}{options: width="100px" align="right"}}
+#'   A `CmdStanModel` object is an [R6][R6::R6Class] object created
 #'   by the [cmdstan_model()] function. The object stores the path to a Stan
 #'   program and compiled executable (once created), and provides methods for
 #'   fitting the model using Stan's algorithms.
@@ -402,11 +403,13 @@ CmdStanModel <- R6::R6Class(
 #' mod$compile()
 #' mod$exe_file()
 #'
-#' # turn on threading support (for using functions that support within-chain parallelization)
+#' # demonstrate turning on threading support
+#' # (won't actually help for this model because it doesn't use functions
+#' # that support within-chain parallelization)
 #' mod$compile(force_recompile = TRUE, cpp_options = list(stan_threads = TRUE))
 #' mod$exe_file()
 #'
-#' # turn on pedantic mode (new in Stan v2.24)
+#' # turn on pedantic mode
 #' file_pedantic <- write_stan_file("
 #' parameters {
 #'   real sigma;  // pedantic mode will warn about missing <lower=0>
@@ -416,7 +419,6 @@ CmdStanModel <- R6::R6Class(
 #' }
 #' ")
 #' mod <- cmdstan_model(file_pedantic, pedantic = TRUE)
-#'
 #' }
 #'
 compile <- function(quiet = TRUE,
