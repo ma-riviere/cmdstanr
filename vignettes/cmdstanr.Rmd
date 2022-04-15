@@ -16,29 +16,28 @@ vignette: >
 ```{r child="children/settings-knitr.Rmd"}
 ```
 
+```{r fix-toolchain, include=FALSE}
+cmdstanr::check_cmdstan_toolchain(fix = TRUE, quiet = TRUE)
+```
+
 ## Introduction
 
 CmdStanR is a lightweight interface to [Stan](https://mc-stan.org/) for R users
-(see [CmdStanPy](https://github.com/stan-dev/cmdstanpy) for Python) that
-provides an alternative to the traditional [RStan](https://mc-stan.org/rstan/)
-interface. See the [*Comparison with RStan*](#comparison-with-rstan) section
-later in this vignette for more details on how the two interfaces differ.
-
-**CmdStanR is not on CRAN yet**, but the beta release can be installed by
-running the following command in R.
+that provides an alternative to the [RStan](https://mc-stan.org/rstan/)
+interface. The [*Comparison with RStan*](#comparison-with-rstan) section later
+in this vignette details how the two interfaces differ. CmdStanR is not yet
+available from CRAN, but the beta release can be installed from the Stan R
+package repository by running the following command in a fresh R session.
 
 ```{r install, eval=FALSE}
-# we recommend running this is a fresh R session or restarting your current session
 install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
 ```
 
-CmdStanR (the **cmdstanr** R package) can now be loaded like any other R
-package. We'll also load the **bayesplot** and **posterior** packages to use
-later in examples.
+The **cmdstanr** R package can now be loaded like any other R package. We'll
+also load the **bayesplot** and **posterior** packages to use later in examples.
 
 ```{r library, message=FALSE}
 library(cmdstanr)
-check_cmdstan_toolchain(fix = TRUE, quiet = TRUE)
 library(posterior)
 library(bayesplot)
 color_scheme_set("brightblue")
@@ -54,17 +53,20 @@ described in the CmdStan Guide:
 
 * https://mc-stan.org/docs/cmdstan-guide/cmdstan-installation.html
 
-To double check that your toolchain is set up properly you can call
-the `check_cmdstan_toolchain()` function: 
+To check that your toolchain is set up properly you can call
+the `check_cmdstan_toolchain()` function.
 
 ```{r check-toolchain}
 check_cmdstan_toolchain()
 ```
 
-If your toolchain is configured correctly then CmdStan can be installed by
+
+### Default installation
+
+If the toolchain is configured correctly then CmdStan can be installed by
 calling the
 [`install_cmdstan()`](https://mc-stan.org/cmdstanr/reference/install_cmdstan.html)
-function:
+function. 
 
 ```{r install_cmdstan-1, include = FALSE}
 if (!dir.exists(cmdstan_default_path())) {
@@ -75,33 +77,27 @@ if (!dir.exists(cmdstan_default_path())) {
 install_cmdstan(cores = 2)
 ```
 
-Before CmdStanR can be used it needs to know where the CmdStan installation is
-located. When the package is loaded it tries to help automate this to avoid
-having to manually set the path every session:
+If you use the default installation location, then when CmdStanR is loaded in
+the future it will automatically use the installed CmdStan release it finds with
+the highest version number.
 
-1. If the environment variable `"CMDSTAN"` exists at load time then its value
-will be automatically set as the default path to CmdStan for the R session. This
-is useful if your CmdStan installation is not located in the default directory
-that would have been used by `install_cmdstan()` (see #2).
+### Using a nonstandard installation
 
-2. If no environment variable is found when loaded but any directory in the form
-`".cmdstan/cmdstan-[version]"`, for example `".cmdstan/cmdstan-2.23.0"`,
-exists in the user's home directory (`Sys.getenv("HOME")`,
-*not* the current working directory) then the path to the CmdStan with the
-largest version number will be set as the path to CmdStan for the R session.
-This is the same as the default directory that `install_cmdstan()` uses to
-install the latest version of CmdStan, so if that's how you installed CmdStan
-you shouldn't need to manually set the path to CmdStan when loading CmdStanR.
-
-If neither of these applies (or you want to subsequently change the path) you
-can use the `set_cmdstan_path()` function:
+If the CmdStan installation you want to use is located in a directory other than
+the default used by `install_cmdstan()`, you can point CmdStanR to the right
+location by either using the `set_cmdstan_path()` function
 
 ```{r set_cmdstan_path, eval=FALSE}
 set_cmdstan_path(PATH_TO_CMDSTAN)
 ```
 
-To check the path to the CmdStan installation and the CmdStan version number
-you can use `cmdstan_path()` and `cmdstan_version()`:
+or by setting the `"CMDSTAN"` environment variable as described in    
+https://mc-stan.org/cmdstanr/reference/set_cmdstan_path.html#details.
+
+### Checking the active CmdStan installation 
+
+To check the path and version number of the active CmdStan installation 
+use `cmdstan_path()` and `cmdstan_version()`.
 
 ```{r cmdstan_path}
 cmdstan_path()
@@ -114,7 +110,7 @@ The `cmdstan_model()` function creates a new
 [`CmdStanModel`](https://mc-stan.org/cmdstanr/reference/CmdStanModel.html)
 object from a file containing a Stan program. Under the hood, CmdStan is called
 to translate a Stan program to C++ and create a compiled executable. Here we'll
-use the example Stan program that comes with the CmdStan installation:
+use the example Stan program that comes with the CmdStan installation.
 
 ```{r cmdstan_model}
 file <- file.path(cmdstan_path(), "examples", "bernoulli", "bernoulli.stan")
@@ -129,18 +125,21 @@ choice allows for CmdStanR and
 [CmdStanPy](https://github.com/stan-dev/cmdstanpy) to provide a similar user
 experience and share many implementation details.
 
-The Stan program can be printed using the `$print()` method: 
+The Stan program can be printed using the `$print()` method.
 
 ```{r compile}
 mod$print()
 ```
 
 The path to the compiled executable is returned by the `$exe_file()`
-method:
+method.
 
 ```{r exe_file}
 mod$exe_file()
 ```
+
+See the [`CmdStanModel`](https://mc-stan.org/cmdstanr/reference/CmdStanModel.html)
+documentation for a list of all available methods.
 
 ## Running MCMC
 
@@ -181,8 +180,7 @@ the most important methods. For a full list, follow this link to the
 
 #### Summaries from the posterior package
 
-The
-[`$summary()`](https://mc-stan.org/cmdstanr/reference/fit-method-summary.html)
+The [`$summary()`](https://mc-stan.org/cmdstanr/reference/fit-method-summary.html)
 method calls `summarise_draws()` from the **posterior** package. The 
 first argument specifies the variables to summarize and any arguments
 after that are passed on to `posterior::summarise_draws()` to specify
@@ -210,7 +208,7 @@ The [`$draws()`](https://mc-stan.org/cmdstanr/reference/fit-method-draws.html)
 method can be used to extract the posterior draws in formats provided by the
 [**posterior**](https://mc-stan.org/posterior/) package. Here we demonstrate
 only the `draws_array` and `draws_df` formats, but the **posterior** package
-supports other useful formats as well.
+supports many other useful formats as well.
 
 ```{r draws, message=FALSE}
 # default is a 3-D draws_array object from the posterior package

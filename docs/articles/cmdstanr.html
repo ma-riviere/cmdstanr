@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
       </span>
     </div>
 
@@ -142,15 +142,12 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>CmdStanR is a lightweight interface to <a href="https://mc-stan.org/">Stan</a> for R users (see <a href="https://github.com/stan-dev/cmdstanpy">CmdStanPy</a> for Python) that provides an alternative to the traditional <a href="https://mc-stan.org/rstan/">RStan</a> interface. See the <a href="#comparison-with-rstan"><em>Comparison with RStan</em></a> section later in this vignette for more details on how the two interfaces differ.</p>
-<p><strong>CmdStanR is not on CRAN yet</strong>, but the beta release can be installed by running the following command in R.</p>
+<p>CmdStanR is a lightweight interface to <a href="https://mc-stan.org/">Stan</a> for R users that provides an alternative to the <a href="https://mc-stan.org/rstan/">RStan</a> interface. The <a href="#comparison-with-rstan"><em>Comparison with RStan</em></a> section later in this vignette details how the two interfaces differ. CmdStanR is not yet available from CRAN, but the beta release can be installed from the Stan R package repository by running the following command in a fresh R session.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># we recommend running this is a fresh R session or restarting your current session</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"cmdstanr"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"https://mc-stan.org/r-packages/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>CmdStanR (the <strong>cmdstanr</strong> R package) can now be loaded like any other R package. We’ll also load the <strong>bayesplot</strong> and <strong>posterior</strong> packages to use later in examples.</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"cmdstanr"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"https://mc-stan.org/r-packages/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>The <strong>cmdstanr</strong> R package can now be loaded like any other R package. We’ll also load the <strong>bayesplot</strong> and <strong>posterior</strong> packages to use later in examples.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mc-stan.org/cmdstanr/">cmdstanr</a></span><span class="op">)</span>
-<span class="fu"><a href="../reference/install_cmdstan.html">check_cmdstan_toolchain</a></span><span class="op">(</span>fix <span class="op">=</span> <span class="cn">TRUE</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mc-stan.org/posterior/">posterior</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mc-stan.org/bayesplot/">bayesplot</a></span><span class="op">)</span>
 <span class="fu"><a href="https://mc-stan.org/bayesplot/reference/bayesplot-colors.html">color_scheme_set</a></span><span class="op">(</span><span class="st">"brightblue"</span><span class="op">)</span></code></pre></div>
@@ -162,38 +159,47 @@
 <ul>
 <li><a href="https://mc-stan.org/docs/cmdstan-guide/cmdstan-installation.html" class="uri">https://mc-stan.org/docs/cmdstan-guide/cmdstan-installation.html</a></li>
 </ul>
-<p>To double check that your toolchain is set up properly you can call the <code><a href="../reference/install_cmdstan.html">check_cmdstan_toolchain()</a></code> function:</p>
+<p>To check that your toolchain is set up properly you can call the <code><a href="../reference/install_cmdstan.html">check_cmdstan_toolchain()</a></code> function.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/install_cmdstan.html">check_cmdstan_toolchain</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>The C++ toolchain required for CmdStan is setup properly!</code></pre>
-<p>If your toolchain is configured correctly then CmdStan can be installed by calling the <a href="https://mc-stan.org/cmdstanr/reference/install_cmdstan.html"><code>install_cmdstan()</code></a> function:</p>
+<div id="default-installation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#default-installation" class="anchor"></a>Default installation</h3>
+<p>If the toolchain is configured correctly then CmdStan can be installed by calling the <a href="https://mc-stan.org/cmdstanr/reference/install_cmdstan.html"><code>install_cmdstan()</code></a> function.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/install_cmdstan.html">install_cmdstan</a></span><span class="op">(</span>cores <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
-<p>Before CmdStanR can be used it needs to know where the CmdStan installation is located. When the package is loaded it tries to help automate this to avoid having to manually set the path every session:</p>
-<ol style="list-style-type: decimal">
-<li><p>If the environment variable <code>"CMDSTAN"</code> exists at load time then its value will be automatically set as the default path to CmdStan for the R session. This is useful if your CmdStan installation is not located in the default directory that would have been used by <code><a href="../reference/install_cmdstan.html">install_cmdstan()</a></code> (see #2).</p></li>
-<li><p>If no environment variable is found when loaded but any directory in the form <code>".cmdstan/cmdstan-[version]"</code>, for example <code>".cmdstan/cmdstan-2.23.0"</code>, exists in the user’s home directory (<code><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv("HOME")</a></code>, <em>not</em> the current working directory) then the path to the CmdStan with the largest version number will be set as the path to CmdStan for the R session. This is the same as the default directory that <code><a href="../reference/install_cmdstan.html">install_cmdstan()</a></code> uses to install the latest version of CmdStan, so if that’s how you installed CmdStan you shouldn’t need to manually set the path to CmdStan when loading CmdStanR.</p></li>
-</ol>
-<p>If neither of these applies (or you want to subsequently change the path) you can use the <code><a href="../reference/set_cmdstan_path.html">set_cmdstan_path()</a></code> function:</p>
+<p>If you use the default installation location, then when CmdStanR is loaded in the future it will automatically use the installed CmdStan release it finds with the highest version number.</p>
+</div>
+<div id="using-a-nonstandard-installation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#using-a-nonstandard-installation" class="anchor"></a>Using a nonstandard installation</h3>
+<p>If the CmdStan installation you want to use is located in a directory other than the default used by <code><a href="../reference/install_cmdstan.html">install_cmdstan()</a></code>, you can point CmdStanR to the right location by either using the <code><a href="../reference/set_cmdstan_path.html">set_cmdstan_path()</a></code> function</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/set_cmdstan_path.html">set_cmdstan_path</a></span><span class="op">(</span><span class="va">PATH_TO_CMDSTAN</span><span class="op">)</span></code></pre></div>
-<p>To check the path to the CmdStan installation and the CmdStan version number you can use <code><a href="../reference/set_cmdstan_path.html">cmdstan_path()</a></code> and <code><a href="../reference/set_cmdstan_path.html">cmdstan_version()</a></code>:</p>
+<p>or setting the <code>"CMDSTAN"</code> environment variable as described in<br><a href="https://mc-stan.org/cmdstanr/reference/set_cmdstan_path.html#details" class="uri">https://mc-stan.org/cmdstanr/reference/set_cmdstan_path.html#details</a>.</p>
+</div>
+<div id="checking-the-active-cmdstan-installation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#checking-the-active-cmdstan-installation" class="anchor"></a>Checking the active CmdStan installation</h3>
+<p>To check the path and version number of the active CmdStan installation use <code><a href="../reference/set_cmdstan_path.html">cmdstan_path()</a></code> and <code><a href="../reference/set_cmdstan_path.html">cmdstan_version()</a></code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/set_cmdstan_path.html">cmdstan_path</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] "/Users/jgabry/.cmdstan/cmdstan-2.29.1"</code></pre>
+<pre><code>[1] "/Users/jgabry/.cmdstan/cmdstan-2.29.2"</code></pre>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/set_cmdstan_path.html">cmdstan_version</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] "2.29.1"</code></pre>
+<pre><code>[1] "2.29.2"</code></pre>
+</div>
 </div>
 <div id="compiling-a-model" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compiling-a-model" class="anchor"></a>Compiling a model</h2>
-<p>The <code><a href="../reference/cmdstan_model.html">cmdstan_model()</a></code> function creates a new <a href="https://mc-stan.org/cmdstanr/reference/CmdStanModel.html"><code>CmdStanModel</code></a> object from a file containing a Stan program. Under the hood, CmdStan is called to translate a Stan program to C++ and create a compiled executable. Here we’ll use the example Stan program that comes with the CmdStan installation:</p>
+<p>The <code><a href="../reference/cmdstan_model.html">cmdstan_model()</a></code> function creates a new <a href="https://mc-stan.org/cmdstanr/reference/CmdStanModel.html"><code>CmdStanModel</code></a> object from a file containing a Stan program. Under the hood, CmdStan is called to translate a Stan program to C++ and create a compiled executable. Here we’ll use the example Stan program that comes with the CmdStan installation.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="../reference/set_cmdstan_path.html">cmdstan_path</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"examples"</span>, <span class="st">"bernoulli"</span>, <span class="st">"bernoulli.stan"</span><span class="op">)</span>
 <span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cmdstan_model.html">cmdstan_model</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></code></pre></div>
 <p>The object <code>mod</code> is an <a href="https://r6.r-lib.org/">R6</a> reference object of class <a href="https://mc-stan.org/cmdstanr/reference/CmdStanModel.html"><code>CmdStanModel</code></a> and behaves similarly to R’s reference class objects and those in object oriented programming languages. Methods are accessed using the <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> operator. This design choice allows for CmdStanR and <a href="https://github.com/stan-dev/cmdstanpy">CmdStanPy</a> to provide a similar user experience and share many implementation details.</p>
-<p>The Stan program can be printed using the <code>$print()</code> method:</p>
+<p>The Stan program can be printed using the <code>$print()</code> method.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod</span><span class="op">$</span><span class="fu">print</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>data {
@@ -207,10 +213,11 @@ model {
   theta ~ beta(1,1);  // uniform prior on interval 0,1
   y ~ bernoulli(theta);
 }</code></pre>
-<p>The path to the compiled executable is returned by the <code>$exe_file()</code> method:</p>
+<p>The path to the compiled executable is returned by the <code>$exe_file()</code> method.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod</span><span class="op">$</span><span class="fu">exe_file</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] "/Users/jgabry/.cmdstan/cmdstan-2.29.1/examples/bernoulli/bernoulli"</code></pre>
+<pre><code>[1] "/Users/jgabry/.cmdstan/cmdstan-2.29.2/examples/bernoulli/bernoulli"</code></pre>
+<p>See the <a href="https://mc-stan.org/cmdstanr/reference/CmdStanModel.html"><code>CmdStanModel</code></a> documentation for a list of all available methods.</p>
 </div>
 <div id="running-mcmc" class="section level2">
 <h2 class="hasAnchor">
@@ -310,7 +317,7 @@ Total execution time: 0.3 seconds.</code></pre>
 <div id="extracting-draws" class="section level4">
 <h4 class="hasAnchor">
 <a href="#extracting-draws" class="anchor"></a>Extracting draws</h4>
-<p>The <a href="https://mc-stan.org/cmdstanr/reference/fit-method-draws.html"><code>$draws()</code></a> method can be used to extract the posterior draws in formats provided by the <a href="https://mc-stan.org/posterior/"><strong>posterior</strong></a> package. Here we demonstrate only the <code>draws_array</code> and <code>draws_df</code> formats, but the <strong>posterior</strong> package supports other useful formats as well.</p>
+<p>The <a href="https://mc-stan.org/cmdstanr/reference/fit-method-draws.html"><code>$draws()</code></a> method can be used to extract the posterior draws in formats provided by the <a href="https://mc-stan.org/posterior/"><strong>posterior</strong></a> package. Here we demonstrate only the <code>draws_array</code> and <code>draws_df</code> formats, but the <strong>posterior</strong> package supports many other useful formats as well.</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># default is a 3-D draws_array object from the posterior package</span>
 <span class="co"># iterations x chains x variables</span>
@@ -411,27 +418,27 @@ $ebfmi
 <p>In this case there were no warnings, so in order to demonstrate the warning messages we’ll use one of the CmdStanR example models that suffers from divergences.</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fit_with_warning</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cmdstanr_example.html">cmdstanr_example</a></span><span class="op">(</span><span class="st">"schools"</span><span class="op">)</span></code></pre></div>
-<pre><code>Warning: 76 of 4000 (2.0%) transitions ended with a divergence.
+<pre><code>Warning: 106 of 4000 (3.0%) transitions ended with a divergence.
 See https://mc-stan.org/misc/warnings for details.</code></pre>
 <p>After fitting there is a warning about divergences. We can also regenerate this warning message later using <code>fit$diagnostic_summary()</code>.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">diagnostics</span> <span class="op">&lt;-</span> <span class="va">fit_with_warning</span><span class="op">$</span><span class="fu">diagnostic_summary</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>Warning: 76 of 4000 (2.0%) transitions ended with a divergence.
+<pre><code>Warning: 106 of 4000 (3.0%) transitions ended with a divergence.
 See https://mc-stan.org/misc/warnings for details.</code></pre>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">diagnostics</span><span class="op">)</span></code></pre></div>
 <pre><code>$num_divergent
-[1] 22 19 33  2
+[1] 32 51  2 21
 
 $num_max_treedepth
 [1] 0 0 0 0
 
 $ebfmi
-[1] 0.3826859 0.3953390 0.2349030 0.2268031</code></pre>
+[1] 0.3804808 0.3357595 0.4042250 0.4071439</code></pre>
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># number of divergences reported in warning is the sum of the per chain values</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">diagnostics</span><span class="op">$</span><span class="va">num_divergent</span><span class="op">)</span> </code></pre></div>
-<pre><code>[1] 76</code></pre>
+<pre><code>[1] 106</code></pre>
 </div>
 <div id="cmdstans-diagnose-utility" class="section level4">
 <h4 class="hasAnchor">
@@ -491,8 +498,8 @@ EXPERIMENTAL ALGORITHM:
   This procedure has not been thoroughly tested and may be unstable 
   or buggy. The interface is subject to change. 
 ------------------------------------------------------------ 
-Gradient evaluation took 4e-06 seconds 
-1000 transitions using 10 leapfrog steps per transition would take 0.04 seconds. 
+Gradient evaluation took 3e-06 seconds 
+1000 transitions using 10 leapfrog steps per transition would take 0.03 seconds. 
 Adjust your expectations accordingly! 
 Begin eta adaptation. 
 Iteration:   1 / 250 [  0%]  (Adaptation) 

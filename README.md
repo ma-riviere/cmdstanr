@@ -1,4 +1,4 @@
-# CmdStanR <img src="man/figures/logo.png" align="right" width="120" />
+# CmdStanR <a href='https://mc-stan.org/cmdstanr'><img src="man/figures/logo.png" align="right" height="120" /></a>
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/cmdstanr)](https://CRAN.R-project.org/package=cmdstanr)
