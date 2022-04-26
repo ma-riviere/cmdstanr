@@ -84,7 +84,7 @@ for how to avoid manually setting the path in each R session." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@ for how to avoid manually setting the path in each R session." />
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -223,7 +223,11 @@ installation is located. When the package is loaded it tries to help automate
 this to avoid having to manually set the path every session:</p><ul>
 <li><p>If the <a href='https://rdrr.io/r/base/Sys.setenv.html'>environment variable</a> <code>"CMDSTAN"</code> exists at load time
 then its value will be automatically set as the default path to CmdStan for
-the <span style="R">R</span> session.</p></li>
+the <span style="R">R</span> session. If the environment variable <code>"CMDSTAN"</code> is set, but a valid
+CmdStan is not found in the supplied path, the path is treated as a top
+folder that contains CmdStan installations. In that case, the CmdStan
+installation with the largest version number will be set as the path to
+CmdStan for the <span style="R">R</span> session.</p></li>
 <li><p>If no environment variable is found when loaded but any directory in the
 form <code>".cmdstan/cmdstan-[version]"</code> (e.g., <code>".cmdstan/cmdstan-2.23.0"</code>),
 exists in the user's home directory (<code><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv("HOME")</a></code>, <em>not</em> the current

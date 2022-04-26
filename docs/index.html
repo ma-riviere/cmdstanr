@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -65,7 +65,7 @@
   <a href="news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -134,28 +134,37 @@
   <div class="contents col-md-9">
 <div id="cmdstanr-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#cmdstanr-" class="anchor"></a>CmdStanR <img src="reference/figures/logo.png" align="right" width="120">
+<a href="#cmdstanr-" class="anchor"></a>CmdStanR
+<img src="reference/figures/logo.png" align="right" width="120">
 </h1></div>
 <!-- badges: start -->
 
 <div id="overview" class="section level3">
 <h3 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h3>
-<p>CmdStanR is a lightweight interface to <a href="https://mc-stan.org">Stan</a> for R users (see <a href="https://github.com/stan-dev/cmdstanpy">CmdStanPy</a> for Python).</p>
-<p>If you are new to CmdStanR we recommend starting with these vignettes:</p>
+<p>CmdStanR is a lightweight interface to <a href="https://mc-stan.org">Stan</a> for R users (see <a href="https://github.com/stan-dev/cmdstanpy">CmdStanPy</a> for
+Python).</p>
+<p>If you are new to CmdStanR we recommend starting with these
+vignettes:</p>
 <ul>
-<li><p><a href="https://mc-stan.org/cmdstanr/articles/cmdstanr.html"><em>Getting started with CmdStanR</em></a></p></li>
-<li><p><a href="https://mc-stan.org/cmdstanr/articles/cmdstanr-internals.html"><em>How does CmdStanR work?</em></a></p></li>
+<li><p><a href="https://mc-stan.org/cmdstanr/articles/cmdstanr.html"><em>Getting
+started with CmdStanR</em></a></p></li>
+<li><p><a href="https://mc-stan.org/cmdstanr/articles/cmdstanr-internals.html"><em>How
+does CmdStanR work?</em></a></p></li>
 </ul>
 </div>
 <div id="goals" class="section level3">
 <h3 class="hasAnchor">
 <a href="#goals" class="anchor"></a>Goals</h3>
 <ul>
-<li><p>A clean interface to Stan services so that CmdStanR can keep up with Stan releases.</p></li>
-<li><p>R code that doesn’t interface directly with C++, only calls compiled executables.</p></li>
-<li><p>Modularity: CmdStanR runs Stan’s algorithms and lets downstream modules do the analysis.</p></li>
-<li><p>Flexible <a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3 license</a>.</p></li>
+<li><p>A clean interface to Stan services so that CmdStanR can keep up
+with Stan releases.</p></li>
+<li><p>R code that doesn’t interface directly with C++, only calls
+compiled executables.</p></li>
+<li><p>Modularity: CmdStanR runs Stan’s algorithms and lets downstream
+modules do the analysis.</p></li>
+<li><p>Flexible <a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3
+license</a>.</p></li>
 </ul>
 </div>
 <div id="installation" class="section level3">
@@ -164,12 +173,15 @@
 <div id="installing-the-r-package" class="section level4">
 <h4 class="hasAnchor">
 <a href="#installing-the-r-package" class="anchor"></a>Installing the R package</h4>
-<p>You can install the latest beta release of the <strong>cmdstanr</strong> R package with</p>
+<p>You can install the latest beta release of the
+<strong>cmdstanr</strong> R package with</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># we recommend running this is a fresh R session or restarting your current session</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"cmdstanr"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"https://mc-stan.org/r-packages/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>This does not install the vignettes, which take a long time to build, but they are always available online at <a href="https://mc-stan.org/cmdstanr/articles/" class="uri">https://mc-stan.org/cmdstanr/articles/</a>.</p>
-<p>To instead install the latest development version of the package from GitHub use</p>
+<p>This does not install the vignettes, which take a long time to build,
+but they are always available online at <a href="https://mc-stan.org/cmdstanr/articles/" class="uri">https://mc-stan.org/cmdstanr/articles/</a>.</p>
+<p>To instead install the latest development version of the package from
+GitHub use</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"stan-dev/cmdstanr"</span><span class="op">)</span></code></pre></div>
@@ -177,18 +189,25 @@
 <div id="installing-cmdstan" class="section level4">
 <h4 class="hasAnchor">
 <a href="#installing-cmdstan" class="anchor"></a>Installing CmdStan</h4>
-<p>If you don’t already have CmdStan installed then, in addition to installing the R package, it is also necessary to install CmdStan using CmdStanR’s <code><a href="reference/install_cmdstan.html">install_cmdstan()</a></code> function. A suitable C++ toolchain is also required. Instructions are provided in the <a href="https://mc-stan.org/cmdstanr/articles/cmdstanr.html"><em>Getting started with CmdStanR</em></a> vignette.</p>
+<p>If you don’t already have CmdStan installed then, in addition to
+installing the R package, it is also necessary to install CmdStan using
+CmdStanR’s <code><a href="reference/install_cmdstan.html">install_cmdstan()</a></code> function. A suitable C++
+toolchain is also required. Instructions are provided in the <a href="https://mc-stan.org/cmdstanr/articles/cmdstanr.html"><em>Getting
+started with CmdStanR</em></a> vignette.</p>
 </div>
 </div>
 <div id="contributing" class="section level3">
 <h3 class="hasAnchor">
 <a href="#contributing" class="anchor"></a>Contributing</h3>
-<p>There is a lot of work still to be done and contributions are very welcome! If you are interested in contributing please comment on an open issue or open a new one if none are applicable.</p>
+<p>There is a lot of work still to be done and contributions are very
+welcome! If you are interested in contributing please comment on an open
+issue or open a new one if none are applicable.</p>
 </div>
 <div id="license" class="section level3">
 <h3 class="hasAnchor">
 <a href="#license" class="anchor"></a>License</h3>
-<p>CmdStanR, like CmdStan and the core Stan C++ code, is licensed under the following licenses:</p>
+<p>CmdStanR, like CmdStan and the core Stan C++ code, is licensed under
+the following licenses:</p>
 <ul>
 <li>Code: BSD 3-clause (<a href="https://opensource.org/licenses/BSD-3-Clause" class="uri">https://opensource.org/licenses/BSD-3-Clause</a>)</li>
 <li>Documentation: CC-BY 4.0 (<a href="https://creativecommons.org/licenses/by/4.0/" class="uri">https://creativecommons.org/licenses/by/4.0/</a>)</li>

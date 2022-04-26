@@ -178,6 +178,9 @@
     <loc>https://mc-stan.org/cmdstanr/articles/cmdstanr.html</loc>
   </url>
   <url>
+    <loc>https://mc-stan.org/cmdstanr/articles/deprecations.html</loc>
+  </url>
+  <url>
     <loc>https://mc-stan.org/cmdstanr/articles/profiling.html</loc>
   </url>
   <url>

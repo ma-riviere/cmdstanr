@@ -85,7 +85,7 @@ log probability (target) accumulated in the model block." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -107,7 +107,7 @@ log probability (target) accumulated in the model block." />
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -278,7 +278,7 @@ format. See <code><a href='fit-method-mle.html'>$mle()</a></code> to extract the
 <span class='va'>draws</span> <span class='op'>&lt;-</span> <span class='va'>fit</span><span class='op'>$</span><span class='fu'>draws</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>draws</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 1000    4  105</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>draws</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  'draws_array' num [1:1000, 1:4, 1:105] -66.8 -65.2 -65.1 -64.4 -64.9 ...
+</div><div class='output co'>#&gt;  'draws_array' num [1:1000, 1:4, 1:105] -65.5 -65.9 -68.4 -70.9 -68.6 ...
 #&gt;  - attr(*, "dimnames")=List of 3
 #&gt;   ..$ iteration: chr [1:1000] "1" "2" "3" "4" ...
 #&gt;   ..$ chain    : chr [1:4] "1" "2" "3" "4"
@@ -289,12 +289,12 @@ format. See <code><a href='fit-method-mle.html'>$mle()</a></code> to extract the
 </div><div class='output co'>#&gt; # A draws_matrix: 6 iterations, 1 chains, and 105 variables
 #&gt;     variable
 #&gt; draw lp__ alpha beta[1] beta[2] beta[3] log_lik[1] log_lik[2] log_lik[3]
-#&gt;    1  -67  0.37   -1.25   -0.25    0.80      -0.44      -0.25      -0.31
-#&gt;    2  -65  0.38   -0.56   -0.12    0.97      -0.52      -0.26      -0.34
-#&gt;    3  -65  0.37   -0.95   -0.43    0.66      -0.49      -0.37      -0.52
-#&gt;    4  -64  0.24   -0.48   -0.17    0.67      -0.58      -0.36      -0.48
-#&gt;    5  -65  0.19   -0.50   -0.41    0.47      -0.61      -0.47      -0.77
-#&gt;    6  -67  0.89   -0.80   -0.50    0.78      -0.34      -0.54      -0.41
+#&gt;    1  -66  0.43 -1.0830   -0.20    0.75      -0.44      -0.29      -0.30
+#&gt;    2  -66  0.44 -0.1791   -0.30    0.54      -0.54      -0.58      -0.62
+#&gt;    3  -68  0.60 -0.0047   -0.19    0.70      -0.50      -0.58      -0.48
+#&gt;    4  -71  0.87 -1.2279   -0.77    0.86      -0.33      -0.46      -0.51
+#&gt;    5  -69  0.71 -1.1477   -0.63    1.09      -0.39      -0.30      -0.44
+#&gt;    6  -67  0.11 -0.4862    0.11    0.74      -0.61      -0.25      -0.32
 #&gt; # ... with 97 more variables</div><div class='input'>
 <span class='co'># or can specify 'format' argument to avoid manual conversion</span>
 <span class='co'># matrix format combines all chains</span>
@@ -303,12 +303,12 @@ format. See <code><a href='fit-method-mle.html'>$mle()</a></code> to extract the
 </div><div class='output co'>#&gt; # A draws_matrix: 6 iterations, 1 chains, and 105 variables
 #&gt;     variable
 #&gt; draw lp__ alpha beta[1] beta[2] beta[3] log_lik[1] log_lik[2] log_lik[3]
-#&gt;    1  -67  0.37   -1.25   -0.25    0.80      -0.44      -0.25      -0.31
-#&gt;    2  -65  0.38   -0.56   -0.12    0.97      -0.52      -0.26      -0.34
-#&gt;    3  -65  0.37   -0.95   -0.43    0.66      -0.49      -0.37      -0.52
-#&gt;    4  -64  0.24   -0.48   -0.17    0.67      -0.58      -0.36      -0.48
-#&gt;    5  -65  0.19   -0.50   -0.41    0.47      -0.61      -0.47      -0.77
-#&gt;    6  -67  0.89   -0.80   -0.50    0.78      -0.34      -0.54      -0.41
+#&gt;    1  -66  0.43 -1.0830   -0.20    0.75      -0.44      -0.29      -0.30
+#&gt;    2  -66  0.44 -0.1791   -0.30    0.54      -0.54      -0.58      -0.62
+#&gt;    3  -68  0.60 -0.0047   -0.19    0.70      -0.50      -0.58      -0.48
+#&gt;    4  -71  0.87 -1.2279   -0.77    0.86      -0.33      -0.46      -0.51
+#&gt;    5  -69  0.71 -1.1477   -0.63    1.09      -0.39      -0.30      -0.44
+#&gt;    6  -67  0.11 -0.4862    0.11    0.74      -0.61      -0.25      -0.32
 #&gt; # ... with 97 more variables</div><div class='input'>
 <span class='co'># can select specific parameters</span>
 <span class='va'>fit</span><span class='op'>$</span><span class='fu'>draws</span><span class='op'>(</span><span class='st'>"alpha"</span><span class='op'>)</span>
@@ -316,66 +316,66 @@ format. See <code><a href='fit-method-mle.html'>$mle()</a></code> to extract the
 #&gt; , , variable = alpha
 #&gt; 
 #&gt;          chain
-#&gt; iteration    1      2    3      4
-#&gt;         1 0.37 -0.074 0.50  0.548
-#&gt;         2 0.38 -0.074 0.46  0.098
-#&gt;         3 0.37  0.016 0.57  0.363
-#&gt;         4 0.24  0.016 0.66  0.981
-#&gt;         5 0.19  0.542 0.22 -0.174
+#&gt; iteration    1     2    3      4
+#&gt;         1 0.43 0.547 0.29 -0.087
+#&gt;         2 0.44 0.734 0.87  0.860
+#&gt;         3 0.60 0.646 0.50  0.461
+#&gt;         4 0.87 0.234 0.10  0.399
+#&gt;         5 0.71 0.069 0.10  0.420
 #&gt; 
 #&gt; # ... with 995 more iterations</div><div class='input'><span class='va'>fit</span><span class='op'>$</span><span class='fu'>draws</span><span class='op'>(</span><span class='st'>"beta"</span><span class='op'>)</span>  <span class='co'># selects entire vector beta</span>
 </div><div class='output co'>#&gt; # A draws_array: 1000 iterations, 4 chains, and 3 variables
 #&gt; , , variable = beta[1]
 #&gt; 
 #&gt;          chain
-#&gt; iteration     1     2     3      4
-#&gt;         1 -1.25 -0.59 -0.76 -0.503
-#&gt;         2 -0.56 -0.59 -0.47 -0.794
-#&gt;         3 -0.95 -0.61 -0.83 -0.589
-#&gt;         4 -0.48 -0.61 -1.14 -1.460
-#&gt;         5 -0.50 -0.81 -0.48  0.074
+#&gt; iteration       1     2     3     4
+#&gt;         1 -1.0830 -0.83 -0.83 -1.17
+#&gt;         2 -0.1791 -0.66 -0.69 -0.40
+#&gt;         3 -0.0047 -0.64 -0.65 -0.64
+#&gt;         4 -1.2279 -0.39 -0.45 -0.89
+#&gt;         5 -1.1477 -0.54 -0.45 -0.46
 #&gt; 
 #&gt; , , variable = beta[2]
 #&gt; 
 #&gt;          chain
-#&gt; iteration     1     2     3        4
-#&gt;         1 -0.25 -0.36  0.14 -0.26824
-#&gt;         2 -0.12 -0.36 -0.02 -0.13334
-#&gt;         3 -0.43 -0.33 -0.34 -0.41513
-#&gt;         4 -0.17 -0.33 -0.14  0.00039
-#&gt;         5 -0.41 -0.10 -0.78 -0.49269
+#&gt; iteration     1     2     3     4
+#&gt;         1 -0.20 -0.37 -0.32 -0.62
+#&gt;         2 -0.30 -0.38 -0.65 -0.16
+#&gt;         3 -0.19 -0.31 -0.25 -0.18
+#&gt;         4 -0.77 -0.16  0.10 -0.20
+#&gt;         5 -0.63 -0.58  0.10 -0.18
 #&gt; 
 #&gt; , , variable = beta[3]
 #&gt; 
 #&gt;          chain
-#&gt; iteration    1    2     3    4
-#&gt;         1 0.80 0.70 0.067 1.24
-#&gt;         2 0.97 0.70 0.367 0.28
-#&gt;         3 0.66 0.83 0.329 0.99
-#&gt;         4 0.67 0.83 0.288 0.46
-#&gt;         5 0.47 0.53 0.447 0.83
+#&gt; iteration    1    2    3    4
+#&gt;         1 0.75 0.73 0.93 1.05
+#&gt;         2 0.54 1.03 0.29 0.26
+#&gt;         3 0.70 0.97 0.70 0.76
+#&gt;         4 0.86 0.45 0.62 0.68
+#&gt;         5 1.09 0.44 0.62 0.48
 #&gt; 
 #&gt; # ... with 995 more iterations</div><div class='input'><span class='va'>fit</span><span class='op'>$</span><span class='fu'>draws</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"alpha"</span>, <span class='st'>"beta[2]"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; # A draws_array: 1000 iterations, 4 chains, and 2 variables
 #&gt; , , variable = alpha
 #&gt; 
 #&gt;          chain
-#&gt; iteration    1      2    3      4
-#&gt;         1 0.37 -0.074 0.50  0.548
-#&gt;         2 0.38 -0.074 0.46  0.098
-#&gt;         3 0.37  0.016 0.57  0.363
-#&gt;         4 0.24  0.016 0.66  0.981
-#&gt;         5 0.19  0.542 0.22 -0.174
+#&gt; iteration    1     2    3      4
+#&gt;         1 0.43 0.547 0.29 -0.087
+#&gt;         2 0.44 0.734 0.87  0.860
+#&gt;         3 0.60 0.646 0.50  0.461
+#&gt;         4 0.87 0.234 0.10  0.399
+#&gt;         5 0.71 0.069 0.10  0.420
 #&gt; 
 #&gt; , , variable = beta[2]
 #&gt; 
 #&gt;          chain
-#&gt; iteration     1     2     3        4
-#&gt;         1 -0.25 -0.36  0.14 -0.26824
-#&gt;         2 -0.12 -0.36 -0.02 -0.13334
-#&gt;         3 -0.43 -0.33 -0.34 -0.41513
-#&gt;         4 -0.17 -0.33 -0.14  0.00039
-#&gt;         5 -0.41 -0.10 -0.78 -0.49269
+#&gt; iteration     1     2     3     4
+#&gt;         1 -0.20 -0.37 -0.32 -0.62
+#&gt;         2 -0.30 -0.38 -0.65 -0.16
+#&gt;         3 -0.19 -0.31 -0.25 -0.18
+#&gt;         4 -0.77 -0.16  0.10 -0.20
+#&gt;         5 -0.63 -0.58  0.10 -0.18
 #&gt; 
 #&gt; # ... with 995 more iterations</div><div class='input'>
 <span class='co'># can be passed directly to bayesplot plotting functions</span>

@@ -81,7 +81,7 @@ version." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -103,7 +103,7 @@ version." />
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -181,7 +181,7 @@ version." />
 version.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cmdstan_default_path</span><span class='op'>(</span>old <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>cmdstan_default_path</span><span class='op'>(</span>old <span class='op'>=</span> <span class='cn'>FALSE</span>, dir <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -189,6 +189,10 @@ version.</p>
     <tr>
       <th>old</th>
       <td><p>See <code><a href='cmdstan_default_install_path.html'>cmdstan_default_install_path()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>dir</th>
+      <td><p>Path to a custom install folder with CmdStan installations.</p></td>
     </tr>
     </table>
 

@@ -82,7 +82,7 @@ fitting the model. See Examples and read_cmdstan_csv()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@ fitting the model. See Examples and read_cmdstan_csv()." />
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -197,8 +197,8 @@ fitting the model. See <strong>Examples</strong> and <code><a href='read_cmdstan
 </div><div class='output co'>#&gt; List of 40
 #&gt;  $ stan_version_major  : num 2
 #&gt;  $ stan_version_minor  : num 29
-#&gt;  $ stan_version_patch  : num 1
-#&gt;  $ start_datetime      : chr "2022-03-18 18:25:53 UTC"
+#&gt;  $ stan_version_patch  : num 2
+#&gt;  $ start_datetime      : chr "2022-04-26 18:35:39 UTC"
 #&gt;  $ method              : chr "sample"
 #&gt;  $ save_warmup         : num 0
 #&gt;  $ thin                : num 1
@@ -218,11 +218,11 @@ fitting the model. See <strong>Examples</strong> and <code><a href='read_cmdstan
 #&gt;  $ seed                : num 1.35e+09
 #&gt;  $ refresh             : num 100
 #&gt;  $ sig_figs            : num -1
-#&gt;  $ profile_file        : chr "/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/logistic-profile-202203181225-1-94bdc7.csv"
-#&gt;  $ stanc_version       : chr "stanc3 v2.29.1"
+#&gt;  $ profile_file        : chr "/tmp/Rtmpi2xL70/logistic-profile-202204262035-1-a352be.csv"
+#&gt;  $ stanc_version       : chr "stanc3 v2.29.2"
 #&gt;  $ sampler_diagnostics : chr [1:6] "accept_stat__" "stepsize__" "treedepth__" "n_leapfrog__" ...
 #&gt;  $ variables           : chr [1:105] "lp__" "alpha" "beta[1]" "beta[2]" ...
-#&gt;  $ step_size_adaptation: num [1:4] 0.763 0.761 0.699 0.761
+#&gt;  $ step_size_adaptation: num [1:4] 0.743 0.861 0.699 0.761
 #&gt;  $ model_name          : chr "logistic_model"
 #&gt;  $ adapt_engaged       : num 1
 #&gt;  $ adapt_delta         : num 0.8
@@ -233,9 +233,9 @@ fitting the model. See <strong>Examples</strong> and <code><a href='read_cmdstan
 #&gt;  $ threads_per_chain   : num 1
 #&gt;  $ time                :'data.frame':	4 obs. of  4 variables:
 #&gt;   ..$ chain_id: num [1:4] 1 2 3 4
-#&gt;   ..$ warmup  : num [1:4] 0.026 0.032 0.058 0.028
-#&gt;   ..$ sampling: num [1:4] 0.094 0.104 0.173 0.098
-#&gt;   ..$ total   : num [1:4] 0.12 0.136 0.231 0.126
+#&gt;   ..$ warmup  : num [1:4] 0.028 0.025 0.022 0.023
+#&gt;   ..$ sampling: num [1:4] 0.065 0.062 0.065 0.064
+#&gt;   ..$ total   : num [1:4] 0.093 0.087 0.087 0.087
 #&gt;  $ stan_variable_sizes :List of 4
 #&gt;   ..$ lp__   : num 1
 #&gt;   ..$ alpha  : num 1
@@ -248,8 +248,8 @@ fitting the model. See <strong>Examples</strong> and <code><a href='read_cmdstan
 </div><div class='output co'>#&gt; List of 30
 #&gt;  $ stan_version_major : num 2
 #&gt;  $ stan_version_minor : num 29
-#&gt;  $ stan_version_patch : num 1
-#&gt;  $ start_datetime     : chr "2022-03-18 18:25:55 UTC"
+#&gt;  $ stan_version_patch : num 2
+#&gt;  $ start_datetime     : chr "2022-04-26 18:35:40 UTC"
 #&gt;  $ method             : chr "optimize"
 #&gt;  $ algorithm          : chr "lbfgs"
 #&gt;  $ init_alpha         : num 0.001
@@ -266,8 +266,8 @@ fitting the model. See <strong>Examples</strong> and <code><a href='read_cmdstan
 #&gt;  $ seed               : num 4.24e+08
 #&gt;  $ refresh            : num 100
 #&gt;  $ sig_figs           : num -1
-#&gt;  $ profile_file       : chr "/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/logistic-profile-202203181225-1-85709d.csv"
-#&gt;  $ stanc_version      : chr "stanc3 v2.29.1"
+#&gt;  $ profile_file       : chr "/tmp/Rtmpi2xL70/logistic-profile-202204262035-1-940594.csv"
+#&gt;  $ stanc_version      : chr "stanc3 v2.29.2"
 #&gt;  $ sampler_diagnostics: chr(0) 
 #&gt;  $ variables          : chr [1:105] "lp__" "alpha" "beta[1]" "beta[2]" ...
 #&gt;  $ model_name         : chr "logistic_model"
@@ -285,8 +285,8 @@ fitting the model. See <strong>Examples</strong> and <code><a href='read_cmdstan
 </div><div class='output co'>#&gt; List of 29
 #&gt;  $ stan_version_major : num 2
 #&gt;  $ stan_version_minor : num 29
-#&gt;  $ stan_version_patch : num 1
-#&gt;  $ start_datetime     : chr "2022-03-18 18:25:55 UTC"
+#&gt;  $ stan_version_patch : num 2
+#&gt;  $ start_datetime     : chr "2022-04-26 18:35:40 UTC"
 #&gt;  $ method             : chr "variational"
 #&gt;  $ algorithm          : chr "meanfield"
 #&gt;  $ iter               : num 50
@@ -301,8 +301,8 @@ fitting the model. See <strong>Examples</strong> and <code><a href='read_cmdstan
 #&gt;  $ seed               : num 5.22e+08
 #&gt;  $ refresh            : num 100
 #&gt;  $ sig_figs           : num -1
-#&gt;  $ profile_file       : chr "/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/logistic-profile-202203181225-1-18f1e4.csv"
-#&gt;  $ stanc_version      : chr "stanc3 v2.29.1"
+#&gt;  $ profile_file       : chr "/tmp/Rtmpi2xL70/logistic-profile-202204262035-1-2786db.csv"
+#&gt;  $ stanc_version      : chr "stanc3 v2.29.2"
 #&gt;  $ sampler_diagnostics: chr(0) 
 #&gt;  $ variables          : chr [1:106] "lp__" "lp_approx__" "alpha" "beta[1]" ...
 #&gt;  $ model_name         : chr "logistic_model"

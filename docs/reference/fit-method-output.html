@@ -85,7 +85,7 @@ the console output." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -107,7 +107,7 @@ the console output." />
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -237,21 +237,21 @@ MCMC.</p></td>
 #&gt;     num_chains = 1 (Default)
 #&gt; id = 1 (Default)
 #&gt; data
-#&gt;   file = /private/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpBlSxPc/temp_libpathbc8d32dd446a/cmdstanr/logistic.data.json
+#&gt;   file = /tmp/RtmpuIdNOH/temp_libpathf6a817da270e9/cmdstanr/logistic.data.json
 #&gt; init = 2 (Default)
 #&gt; random
 #&gt;   seed = 1354164569
 #&gt; output
-#&gt;   file = /var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/logistic-202203181225-1-827a18.csv
+#&gt;   file = /tmp/Rtmpi2xL70/logistic-202204262035-1-910f0f.csv
 #&gt;   diagnostic_file =  (Default)
 #&gt;   refresh = 100 (Default)
 #&gt;   sig_figs = -1 (Default)
-#&gt;   profile_file = /var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/logistic-profile-202203181225-1-987172.csv
+#&gt;   profile_file = /tmp/Rtmpi2xL70/logistic-profile-202204262035-1-a70669.csv
 #&gt; num_threads = 1 (Default)
 #&gt; 
 #&gt; 
-#&gt; Gradient evaluation took 2.4e-05 seconds
-#&gt; 1000 transitions using 10 leapfrog steps per transition would take 0.24 seconds.
+#&gt; Gradient evaluation took 1e-05 seconds
+#&gt; 1000 transitions using 10 leapfrog steps per transition would take 0.1 seconds.
 #&gt; Adjust your expectations accordingly!
 #&gt; 
 #&gt; 
@@ -278,9 +278,9 @@ MCMC.</p></td>
 #&gt; Iteration: 1900 / 2000 [ 95%]  (Sampling)
 #&gt; Iteration: 2000 / 2000 [100%]  (Sampling)
 #&gt; 
-#&gt;  Elapsed Time: 0.026 seconds (Warm-up)
-#&gt;                0.088 seconds (Sampling)
-#&gt;                0.114 seconds (Total)</div><div class='input'><span class='va'>out</span> <span class='op'>&lt;-</span> <span class='va'>fit_mcmc</span><span class='op'>$</span><span class='fu'>output</span><span class='op'>(</span><span class='op'>)</span>
+#&gt;  Elapsed Time: 0.024 seconds (Warm-up)
+#&gt;                0.067 seconds (Sampling)
+#&gt;                0.091 seconds (Total)</div><div class='input'><span class='va'>out</span> <span class='op'>&lt;-</span> <span class='va'>fit_mcmc</span><span class='op'>$</span><span class='fu'>output</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; List of 4
 #&gt;  $ : chr [1:73] "" "method = sample (Default)" "  sample" "    num_samples = 1000 (Default)" ...
@@ -305,16 +305,16 @@ MCMC.</p></td>
 #&gt;     save_iterations = 0 (Default)
 #&gt; id = 1 (Default)
 #&gt; data
-#&gt;   file = /private/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpBlSxPc/temp_libpathbc8d32dd446a/cmdstanr/logistic.data.json
+#&gt;   file = /tmp/RtmpuIdNOH/temp_libpathf6a817da270e9/cmdstanr/logistic.data.json
 #&gt; init = 2 (Default)
 #&gt; random
 #&gt;   seed = 780877759
 #&gt; output
-#&gt;   file = /var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/logistic-202203181225-1-1e7746.csv
+#&gt;   file = /tmp/Rtmpi2xL70/logistic-202204262035-1-2d0c3d.csv
 #&gt;   diagnostic_file =  (Default)
 #&gt;   refresh = 100 (Default)
 #&gt;   sig_figs = -1 (Default)
-#&gt;   profile_file = /var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/logistic-profile-202203181225-1-71b1d7.csv
+#&gt;   profile_file = /tmp/Rtmpi2xL70/logistic-profile-202204262035-1-8046ce.csv
 #&gt; num_threads = 1 (Default)
 #&gt; 
 #&gt; Initial log joint probability = -137.575
@@ -341,16 +341,16 @@ MCMC.</p></td>
 #&gt;     output_samples = 1000 (Default)
 #&gt; id = 1 (Default)
 #&gt; data
-#&gt;   file = /private/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpBlSxPc/temp_libpathbc8d32dd446a/cmdstanr/logistic.data.json
+#&gt;   file = /tmp/RtmpuIdNOH/temp_libpathf6a817da270e9/cmdstanr/logistic.data.json
 #&gt; init = 2 (Default)
 #&gt; random
 #&gt;   seed = 655253804
 #&gt; output
-#&gt;   file = /var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/logistic-202203181225-1-7c6411.csv
+#&gt;   file = /tmp/Rtmpi2xL70/logistic-202204262035-1-8af908.csv
 #&gt;   diagnostic_file =  (Default)
 #&gt;   refresh = 100 (Default)
 #&gt;   sig_figs = -1 (Default)
-#&gt;   profile_file = /var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/logistic-profile-202203181225-1-8abe62.csv
+#&gt;   profile_file = /tmp/Rtmpi2xL70/logistic-profile-202204262035-1-995359.csv
 #&gt; num_threads = 1 (Default)
 #&gt; 
 #&gt; ------------------------------------------------------------
@@ -361,8 +361,8 @@ MCMC.</p></td>
 #&gt; 
 #&gt; 
 #&gt; 
-#&gt; Gradient evaluation took 2.6e-05 seconds
-#&gt; 1000 transitions using 10 leapfrog steps per transition would take 0.26 seconds.
+#&gt; Gradient evaluation took 7e-06 seconds
+#&gt; 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
 #&gt; Adjust your expectations accordingly!
 #&gt; 
 #&gt; 

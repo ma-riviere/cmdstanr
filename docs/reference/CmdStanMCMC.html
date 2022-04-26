@@ -83,7 +83,7 @@ objects." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -105,7 +105,7 @@ objects." />
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -209,6 +209,7 @@ methods, all of which have their own (linked) documentation pages.</p><h3 class=
 <h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Summarize inferences and diagnostics</h3>
 <table class='table'>
 <tr><td><strong>Method</strong></td><td><strong>Description</strong></td></tr>
+<tr><td><code><a href='fit-method-summary.html'>$print()</a></code></td><td>Run <code><a href='https://mc-stan.org/posterior/reference/draws_summary.html'>posterior::summarise_draws()</a></code>.</td></tr>
 <tr><td><code><a href='fit-method-summary.html'>$summary()</a></code></td><td>Run <code><a href='https://mc-stan.org/posterior/reference/draws_summary.html'>posterior::summarise_draws()</a></code>.</td></tr>
 <tr><td><code><a href='fit-method-diagnostic_summary.html'>$diagnostic_summary()</a></code></td><td>Get summaries of sampler diagnostics and warning messages.</td></tr>
 <tr><td><code><a href='fit-method-cmdstan_summary.html'>$cmdstan_summary()</a></code></td><td>Run and print CmdStan's <code>bin/stansummary</code>.</td></tr>

@@ -81,7 +81,7 @@ from the CmdStan run(s). A return code of 0 indicates a successful run." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -103,7 +103,7 @@ from the CmdStan run(s). A return code of 0 indicates a successful run." />
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -196,7 +196,7 @@ CmdStan runs (number of chains for MCMC and one otherwise).</p>
     <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
 <span class='co'># example with return codes all zero</span>
 <span class='va'>fit_mcmc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='cmdstanr_example.html'>cmdstanr_example</a></span><span class='op'>(</span><span class='st'>"schools"</span>, method <span class='op'>=</span> <span class='st'>"sample"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Warning: 138 of 4000 (3.0%) transitions ended with a divergence.</span>
+</div><div class='output co'>#&gt; <span class='message'>Warning: 164 of 4000 (4.0%) transitions ended with a divergence.</span>
 #&gt; <span class='message'>See https://mc-stan.org/misc/warnings for details.</span></div><div class='input'><span class='va'>fit_mcmc</span><span class='op'>$</span><span class='fu'>return_codes</span><span class='op'>(</span><span class='op'>)</span> <span class='co'># should be all zero</span>
 </div><div class='output co'>#&gt; [1] 0 0 0 0</div><div class='input'>
 <span class='co'># example of non-zero return code (optimization fails for hierarchical model)</span>

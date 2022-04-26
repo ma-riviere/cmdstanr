@@ -82,7 +82,7 @@ CmdStanModel object." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@ CmdStanModel object." />
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -262,7 +262,7 @@ documentation and tutorials.</p>
   }"</span>
 <span class='op'>)</span>
 <span class='va'>mod_mcmc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='cmdstan_model.html'>cmdstan_model</a></span><span class='op'>(</span><span class='va'>mcmc_program</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Warning in '/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/model-d654db71ed5.stan', line 3, column 4: Declaration</span>
+</div><div class='output co'>#&gt; <span class='message'>Warning in '/tmp/Rtmpi2xL70/model-f6b4b36a4c88b.stan', line 3, column 4: Declaration</span>
 #&gt; <span class='message'>    of arrays by placing brackets after a variable name is deprecated and</span>
 #&gt; <span class='message'>    will be removed in Stan 2.32.0. Instead use the array keyword before the</span>
 #&gt; <span class='message'>    type. This can be changed automatically using the auto-format flag to</span>
@@ -278,7 +278,7 @@ documentation and tutorials.</p>
 #&gt; 
 #&gt; All 4 chains finished successfully.
 #&gt; Mean chain execution time: 0.0 seconds.
-#&gt; Total execution time: 0.7 seconds.
+#&gt; Total execution time: 0.6 seconds.
 #&gt; </div><div class='input'>
 <span class='co'># stan program for standalone generated quantities</span>
 <span class='co'># (could keep model block, but not necessary so removing it)</span>
@@ -296,12 +296,12 @@ documentation and tutorials.</p>
 <span class='op'>)</span>
 
 <span class='va'>mod_gq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='cmdstan_model.html'>cmdstan_model</a></span><span class='op'>(</span><span class='va'>gq_program</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Warning in '/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/model-d654260c210e.stan', line 3, column 4: Declaration</span>
+</div><div class='output co'>#&gt; <span class='message'>Warning in '/tmp/Rtmpi2xL70/model-f6b4b2bc05fea.stan', line 3, column 4: Declaration</span>
 #&gt; <span class='message'>    of arrays by placing brackets after a variable name is deprecated and</span>
 #&gt; <span class='message'>    will be removed in Stan 2.32.0. Instead use the array keyword before the</span>
 #&gt; <span class='message'>    type. This can be changed automatically using the auto-format flag to</span>
 #&gt; <span class='message'>    stanc</span>
-#&gt; <span class='message'>Warning in '/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/model-d654260c210e.stan', line 9, column 4: Declaration</span>
+#&gt; <span class='message'>Warning in '/tmp/Rtmpi2xL70/model-f6b4b2bc05fea.stan', line 9, column 4: Declaration</span>
 #&gt; <span class='message'>    of arrays by placing brackets after a variable name is deprecated and</span>
 #&gt; <span class='message'>    will be removed in Stan 2.32.0. Instead use the array keyword before the</span>
 #&gt; <span class='message'>    type. This can be changed automatically using the auto-format flag to</span>
@@ -322,7 +322,7 @@ documentation and tutorials.</p>
 #&gt;   ..$ chain    : chr [1:4] "1" "2" "3" "4"
 #&gt;   ..$ variable : chr [1:10] "y_rep[1]" "y_rep[2]" "y_rep[3]" "y_rep[4]" ...</div><div class='input'>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://mc-stan.org/posterior/'>posterior</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: package ‘posterior’ was built under R version 4.1.2</span></div><div class='output co'>#&gt; <span class='message'>This is posterior version 1.2.1</span></div><div class='output co'>#&gt; <span class='message'></span>
+</div><div class='output co'>#&gt; <span class='message'>This is posterior version 1.2.0</span></div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Attaching package: ‘posterior’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:stats’:</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    mad, sd, var</span></div><div class='input'><span class='fu'><a href='https://mc-stan.org/posterior/reference/draws_df.html'>as_draws_df</a></span><span class='op'>(</span><span class='va'>fit_gq</span><span class='op'>$</span><span class='fu'>draws</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>

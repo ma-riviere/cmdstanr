@@ -1,4 +1,4 @@
-pandoc: 2.11.4
+pandoc: 2.17.1.1
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
@@ -6,9 +6,10 @@ articles:
   children/settings-knitr: settings-knitr.html
   cmdstanr-internals: cmdstanr-internals.html
   cmdstanr: cmdstanr.html
+  deprecations: deprecations.html
   profiling: profiling.html
   r-markdown: r-markdown.html
-last_built: 2022-03-18T18:23Z
+last_built: 2022-04-26T18:34Z
 urls:
   reference: https://mc-stan.org/cmdstanr/reference
   article: https://mc-stan.org/cmdstanr/articles

@@ -84,7 +84,7 @@ safest way to guarantee that everything has been read in before saving." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@ safest way to guarantee that everything has been read in before saving." />
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -219,16 +219,16 @@ safest way to guarantee that everything has been read in before saving.</p>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 105 × 10</span>
 #&gt;    variable      mean  median     sd    mad       q5      q95  rhat ess_bulk
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> lp__       -<span style='color: #BB0000;'>65.9</span>   -<span style='color: #BB0000;'>65.6</span>   1.43   1.20   -<span style='color: #BB0000;'>68.8</span>    -<span style='color: #BB0000;'>64.3</span>     1.00    <span style='text-decoration: underline;'>2</span>291.
-#&gt; <span style='color: #BCBCBC;'> 2</span> alpha        0.379   0.380 0.216  0.220    0.021<span style='text-decoration: underline;'>4</span>   0.735   1.00    <span style='text-decoration: underline;'>4</span>664.
-#&gt; <span style='color: #BCBCBC;'> 3</span> beta[1]     -<span style='color: #BB0000;'>0.668</span>  -<span style='color: #BB0000;'>0.663</span> 0.252  0.250   -<span style='color: #BB0000;'>1.09</span>    -<span style='color: #BB0000;'>0.259</span>   1.00    <span style='text-decoration: underline;'>4</span>187.
-#&gt; <span style='color: #BCBCBC;'> 4</span> beta[2]     -<span style='color: #BB0000;'>0.273</span>  -<span style='color: #BB0000;'>0.265</span> 0.225  0.224   -<span style='color: #BB0000;'>0.646</span>    0.085<span style='text-decoration: underline;'>6</span>  1.00    <span style='text-decoration: underline;'>3</span>736.
-#&gt; <span style='color: #BCBCBC;'> 5</span> beta[3]      0.682   0.679 0.261  0.258    0.260    1.10    1.00    <span style='text-decoration: underline;'>3</span>626.
-#&gt; <span style='color: #BCBCBC;'> 6</span> log_lik[1]  -<span style='color: #BB0000;'>0.515</span>  -<span style='color: #BB0000;'>0.509</span> 0.097<span style='text-decoration: underline;'>9</span> 0.097<span style='text-decoration: underline;'>0</span>  -<span style='color: #BB0000;'>0.683</span>   -<span style='color: #BB0000;'>0.366</span>   1.00    <span style='text-decoration: underline;'>4</span>695.
-#&gt; <span style='color: #BCBCBC;'> 7</span> log_lik[2]  -<span style='color: #BB0000;'>0.401</span>  -<span style='color: #BB0000;'>0.380</span> 0.144  0.136   -<span style='color: #BB0000;'>0.666</span>   -<span style='color: #BB0000;'>0.200</span>   1.00    <span style='text-decoration: underline;'>4</span>367.
-#&gt; <span style='color: #BCBCBC;'> 8</span> log_lik[3]  -<span style='color: #BB0000;'>0.496</span>  -<span style='color: #BB0000;'>0.462</span> 0.218  0.200   -<span style='color: #BB0000;'>0.899</span>   -<span style='color: #BB0000;'>0.206</span>   1.00    <span style='text-decoration: underline;'>4</span>031.
-#&gt; <span style='color: #BCBCBC;'> 9</span> log_lik[4]  -<span style='color: #BB0000;'>0.449</span>  -<span style='color: #BB0000;'>0.432</span> 0.150  0.144   -<span style='color: #BB0000;'>0.722</span>   -<span style='color: #BB0000;'>0.237</span>   1.00    <span style='text-decoration: underline;'>3</span>885.
-#&gt; <span style='color: #BCBCBC;'>10</span> log_lik[5]  -<span style='color: #BB0000;'>1.18</span>   -<span style='color: #BB0000;'>1.17</span>  0.276  0.276   -<span style='color: #BB0000;'>1.68</span>    -<span style='color: #BB0000;'>0.769</span>   1.00    <span style='text-decoration: underline;'>4</span>020.
+#&gt; <span style='color: #BCBCBC;'> 1</span> lp__       -<span style='color: #BB0000;'>65.9</span>   -<span style='color: #BB0000;'>65.6</span>   1.44   1.17   -<span style='color: #BB0000;'>68.7</span>    -<span style='color: #BB0000;'>64.3</span>     1.00    <span style='text-decoration: underline;'>2</span>129.
+#&gt; <span style='color: #BCBCBC;'> 2</span> alpha        0.380   0.382 0.217  0.213    0.028<span style='text-decoration: underline;'>5</span>   0.739   1.00    <span style='text-decoration: underline;'>4</span>152.
+#&gt; <span style='color: #BCBCBC;'> 3</span> beta[1]     -<span style='color: #BB0000;'>0.667</span>  -<span style='color: #BB0000;'>0.665</span> 0.242  0.239   -<span style='color: #BB0000;'>1.08</span>    -<span style='color: #BB0000;'>0.275</span>   1.00    <span style='text-decoration: underline;'>4</span>369.
+#&gt; <span style='color: #BCBCBC;'> 4</span> beta[2]     -<span style='color: #BB0000;'>0.270</span>  -<span style='color: #BB0000;'>0.265</span> 0.219  0.219   -<span style='color: #BB0000;'>0.642</span>    0.081<span style='text-decoration: underline;'>9</span>  1.00    <span style='text-decoration: underline;'>3</span>835.
+#&gt; <span style='color: #BCBCBC;'> 5</span> beta[3]      0.681   0.674 0.268  0.268    0.250    1.12    1.00    <span style='text-decoration: underline;'>3</span>750.
+#&gt; <span style='color: #BCBCBC;'> 6</span> log_lik[1]  -<span style='color: #BB0000;'>0.515</span>  -<span style='color: #BB0000;'>0.508</span> 0.096<span style='text-decoration: underline;'>6</span> 0.094<span style='text-decoration: underline;'>4</span>  -<span style='color: #BB0000;'>0.683</span>   -<span style='color: #BB0000;'>0.367</span>   1.00    <span style='text-decoration: underline;'>3</span>997.
+#&gt; <span style='color: #BCBCBC;'> 7</span> log_lik[2]  -<span style='color: #BB0000;'>0.402</span>  -<span style='color: #BB0000;'>0.383</span> 0.148  0.138   -<span style='color: #BB0000;'>0.680</span>   -<span style='color: #BB0000;'>0.198</span>   1.00    <span style='text-decoration: underline;'>4</span>252.
+#&gt; <span style='color: #BCBCBC;'> 8</span> log_lik[3]  -<span style='color: #BB0000;'>0.492</span>  -<span style='color: #BB0000;'>0.453</span> 0.210  0.194   -<span style='color: #BB0000;'>0.885</span>   -<span style='color: #BB0000;'>0.218</span>   1.00    <span style='text-decoration: underline;'>3</span>880.
+#&gt; <span style='color: #BCBCBC;'> 9</span> log_lik[4]  -<span style='color: #BB0000;'>0.450</span>  -<span style='color: #BB0000;'>0.434</span> 0.148  0.143   -<span style='color: #BB0000;'>0.713</span>   -<span style='color: #BB0000;'>0.240</span>   1.00    <span style='text-decoration: underline;'>3</span>835.
+#&gt; <span style='color: #BCBCBC;'>10</span> log_lik[5]  -<span style='color: #BB0000;'>1.18</span>   -<span style='color: #BB0000;'>1.17</span>  0.278  0.273   -<span style='color: #BB0000;'>1.68</span>    -<span style='color: #BB0000;'>0.765</span>   1.00    <span style='text-decoration: underline;'>4</span>421.
 #&gt; <span style='color: #949494;'># … with 95 more rows, and 1 more variable: ess_tail &lt;dbl&gt;</span></div><div class='input'><span class='co'># }</span>
 
 </div></pre>

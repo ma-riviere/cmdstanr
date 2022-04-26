@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -60,7 +60,7 @@
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -125,11 +125,13 @@
 
       
 
-      </header><script src="deprecations_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
+      </header><script src="deprecations_files/header-attrs-2.13/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Handling deprecated Stan features with the canonicalizer in CmdStanR</h1>
-                        <h4 class="author">Rok Češnovar and Jonah Gabry</h4>
+      <h1 data-toc-skip>Handling deprecated Stan features with the
+canonicalizer in CmdStanR</h1>
+                        <h4 class="author">Rok Češnovar and Jonah
+Gabry</h4>
             
       
       <small class="dont-index">Source: <a href="https://github.com/stan-dev/cmdstanr/blob/master/vignettes/deprecations.Rmd"><code>vignettes/deprecations.Rmd</code></a></small>
@@ -142,8 +144,17 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>This vignette demonstrates how to handle cases where your Stan program contains deprecated features resulting in deprecation warnings. In most cases, the Stan-to-C++ compiler can be used to automatically update your code to a non-deprecated feature that replaces the deprecated one. This vignette showcases how that automatic conversion can be done using CmdStanR.</p>
-<p>The automatic conversion of deprecated features to non-deprecated features is done using the so-called “canonicalizer”, which is part of the Stan-to-C++ compiler. We recommend using CmdStan 2.29.2 or later when using the canonicalizer and this vignette. The minimum CmdStanR version to run the code in the vignette is 0.5.0.</p>
+<p>This vignette demonstrates how to handle cases where your Stan
+program contains deprecated features resulting in deprecation warnings.
+In most cases, the Stan-to-C++ compiler can be used to automatically
+update your code to a non-deprecated feature that replaces the
+deprecated one. This vignette showcases how that automatic conversion
+can be done using CmdStanR.</p>
+<p>The automatic conversion of deprecated features to non-deprecated
+features is done using the so-called “canonicalizer”, which is part of
+the Stan-to-C++ compiler. We recommend using CmdStan 2.29.2 or later
+when using the canonicalizer and this vignette. The minimum CmdStanR
+version to run the code in the vignette is 0.5.0.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mc-stan.org/cmdstanr/">cmdstanr</a></span><span class="op">)</span>
 <span class="fu"><a href="../reference/install_cmdstan.html">check_cmdstan_toolchain</a></span><span class="op">(</span>fix <span class="op">=</span> <span class="cn">TRUE</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
@@ -151,7 +162,8 @@
 <div id="deprecation-warnings" class="section level2">
 <h2 class="hasAnchor">
 <a href="#deprecation-warnings" class="anchor"></a>Deprecation warnings</h2>
-<p>The following logistic regression model uses several deprecated language features, resulting in several warnings during compilation.</p>
+<p>The following logistic regression model uses several deprecated
+language features, resulting in several warnings during compilation.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">stan_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/write_stan_file.html">write_stan_file</a></span><span class="op">(</span><span class="st">"
 data {
@@ -173,33 +185,52 @@ model {
 }
 "</span><span class="op">)</span>
 <span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cmdstan_model.html">cmdstan_model</a></span><span class="op">(</span><span class="va">stan_file</span><span class="op">)</span></code></pre></div>
-<pre><code>Warning in '/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmplsuXnS/model-840d5c7122c.stan', line 6, column 2: Declaration
+<pre><code>Warning in '/tmp/RtmpLbUPmP/model-f78267264571b.stan', line 6, column 2: Declaration
     of arrays by placing brackets after a variable name is deprecated and
     will be removed in Stan 2.32.0. Instead use the array keyword before the
     type. This can be changed automatically using the auto-format flag to
     stanc
-Warning in '/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmplsuXnS/model-840d5c7122c.stan', line 13, column 2: Comments
+Warning in '/tmp/RtmpLbUPmP/model-f78267264571b.stan', line 13, column 2: Comments
     beginning with # are deprecated and this syntax will be removed in Stan
     2.32.0. Use // to begin line comments; this can be done automatically
     using the auto-format flag to stanc
-Warning in '/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmplsuXnS/model-840d5c7122c.stan', line 14, column 12: std_normal_log
+Warning in '/tmp/RtmpLbUPmP/model-f78267264571b.stan', line 14, column 12: std_normal_log
     is deprecated and will be removed in Stan 2.32.0. Use std_normal_lpdf
     instead. This can be automatically changed using the canonicalize flag
     for stanc</code></pre>
 <p>The first warning is about using the deprecated array syntax</p>
 <pre><code>int y[n];</code></pre>
-<p>which should be replaced with the new syntax using the <code>array</code> keyword:</p>
+<p>which should be replaced with the new syntax using the
+<code>array</code> keyword:</p>
 <pre><code>array[n] int y;</code></pre>
-<p>The second warning is about using the deprecated commenting symbol <code>#</code>, which should be replaced by <code>//</code>.</p>
-<p>The last warning is about the use of the deprecated <code>_log</code> suffix for probability density and mass functions. In this case the <code>_log</code> suffix should be replaced with <code>_lpdf</code>. For probability mass functions the suffix <code>_lpmf</code> is used.</p>
-<p>We can go and fix these issues manually or use the canonicalizer as outlined in the next section.</p>
+<p>The second warning is about using the deprecated commenting symbol
+<code>#</code>, which should be replaced by <code>//</code>.</p>
+<p>The last warning is about the use of the deprecated <code>_log</code>
+suffix for probability density and mass functions. In this case the
+<code>_log</code> suffix should be replaced with <code>_lpdf</code>. For
+probability mass functions the suffix <code>_lpmf</code> is used.</p>
+<p>We can go and fix these issues manually or use the canonicalizer as
+outlined in the next section.</p>
 </div>
 <div id="using-the-canonicalizer" class="section level2">
 <h2 class="hasAnchor">
 <a href="#using-the-canonicalizer" class="anchor"></a>Using the canonicalizer</h2>
-<p>The canonicalizer is available through the <code>canonicalize</code> argument of the <code>$format()</code> method of the <code>CmdStanModel</code> class. The arguments accepts <code>TRUE</code> and <code>FALSE</code> values, in which case all or none of the features of the canonicalizer are used. It can also accept a list of character vectors that determine which features of the canonicalizer to use.</p>
-<p>The canonincalizer in CmdStan 2.29.2 supports four features: <code>parentheses</code>, <code>braces</code>, <code>includes</code> and <code>deprecations</code>. The <code>parentheses</code> and <code>braces</code> features clean up the use of parentheses and braces, while <code>includes</code> will replace <code>#include</code> statements with the code from the included files. See the <a href="https://mc-stan.org/docs/2_29/stan-users-guide/stanc-pretty-printing.html#canonicalizing">canonicalizer section of the Stan User’s Guide</a> for more details.</p>
-<p>In this vignette we will be using the <code>deprecations</code> feature that replaces deprecated Stan model features with non-deprecated ones if possible.</p>
+<p>The canonicalizer is available through the <code>canonicalize</code>
+argument of the <code>$format()</code> method of the
+<code>CmdStanModel</code> class. The arguments accepts <code>TRUE</code>
+and <code>FALSE</code> values, in which case all or none of the features
+of the canonicalizer are used. It can also accept a list of character
+vectors that determine which features of the canonicalizer to use.</p>
+<p>The canonincalizer in CmdStan 2.29.2 supports four features:
+<code>parentheses</code>, <code>braces</code>, <code>includes</code> and
+<code>deprecations</code>. The <code>parentheses</code> and
+<code>braces</code> features clean up the use of parentheses and braces,
+while <code>includes</code> will replace <code>#include</code>
+statements with the code from the included files. See the <a href="https://mc-stan.org/docs/2_29/stan-users-guide/stanc-pretty-printing.html#canonicalizing">canonicalizer
+section of the Stan User’s Guide</a> for more details.</p>
+<p>In this vignette we will be using the <code>deprecations</code>
+feature that replaces deprecated Stan model features with non-deprecated
+ones if possible.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod</span><span class="op">$</span><span class="fu">format</span><span class="op">(</span>canonicalize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"deprecations"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>data {
@@ -219,8 +250,18 @@ model {
   
   y ~ bernoulli_logit(X * beta + alpha);
 }</code></pre>
-<p>By default, the format function will print the resulting model code. We can see that all three issues were resolved. <code>y</code> is now defined using the new array keyword, the comment uses <code>//</code> and the <code>std_normal_log()</code> is replaced with <code>std_normal_lpdf()</code>.</p>
-<p>You can also use the <code>$format()</code> method to write the updated version of the model directly to the Stan model file. That can be enabled by setting <code>overwrite_file = TRUE</code>. The previous version of the file will automatically be backed up to a file with the <code>.stan.bak</code> suffix. If that is not desired or you are using a version system and making a backup is redundant, you can disable it by setting <code>backup = FALSE</code>.</p>
+<p>By default, the format function will print the resulting model code.
+We can see that all three issues were resolved. <code>y</code> is now
+defined using the new array keyword, the comment uses <code>//</code>
+and the <code>std_normal_log()</code> is replaced with
+<code>std_normal_lpdf()</code>.</p>
+<p>You can also use the <code>$format()</code> method to write the
+updated version of the model directly to the Stan model file. That can
+be enabled by setting <code>overwrite_file = TRUE</code>. The previous
+version of the file will automatically be backed up to a file with the
+<code>.stan.bak</code> suffix. If that is not desired or you are using a
+version system and making a backup is redundant, you can disable it by
+setting <code>backup = FALSE</code>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod</span><span class="op">$</span><span class="fu">format</span><span class="op">(</span>
     canonicalize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"deprecations"</span><span class="op">)</span>,

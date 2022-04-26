@@ -84,7 +84,7 @@ requires adding profiling statements to the Stan program." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cmdstanr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@ requires adding profiling statements to the Stan program." />
   <a href="../news/index.html">News</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other Packages
      
     <span class="caret"></span>
@@ -224,12 +224,12 @@ were created.</p>
 '</span>
 <span class='op'>)</span>
 <span class='va'>mod_mcmc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='cmdstan_model.html'>cmdstan_model</a></span><span class='op'>(</span><span class='va'>mcmc_program</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Warning in '/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/model-d65431ed4576.stan', line 3, column 4: Declaration</span>
+</div><div class='output co'>#&gt; <span class='message'>Warning in '/tmp/Rtmpi2xL70/model-f6b4b202c1d8b.stan', line 3, column 4: Declaration</span>
 #&gt; <span class='message'>    of arrays by placing brackets after a variable name is deprecated and</span>
 #&gt; <span class='message'>    will be removed in Stan 2.32.0. Instead use the array keyword before the</span>
 #&gt; <span class='message'>    type. This can be changed automatically using the auto-format flag to</span>
 #&gt; <span class='message'>    stanc</span>
-#&gt; <span class='message'>Warning in '/var/folders/s0/zfzm55px2nd2v__zlw5xfj2h0000gn/T/RtmpmzUYEz/model-d65431ed4576.stan', line 14, column 4: Declaration</span>
+#&gt; <span class='message'>Warning in '/tmp/Rtmpi2xL70/model-f6b4b202c1d8b.stan', line 14, column 4: Declaration</span>
 #&gt; <span class='message'>    of arrays by placing brackets after a variable name is deprecated and</span>
 #&gt; <span class='message'>    will be removed in Stan 2.32.0. Instead use the array keyword before the</span>
 #&gt; <span class='message'>    type. This can be changed automatically using the auto-format flag to</span>
@@ -249,33 +249,33 @@ were created.</p>
 #&gt; </div><div class='input'>
 <span class='va'>fit</span><span class='op'>$</span><span class='fu'>profiles</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [[1]]
-#&gt;         name   thread_id  total_time forward_time reverse_time chain_stack
-#&gt; 1         gq 0x10f232e00 0.000386068  0.000386068  0.000000000           0
-#&gt; 2 likelihood 0x10f232e00 0.001285670  0.000903227  0.000382445        7169
+#&gt;         name       thread_id  total_time forward_time reverse_time chain_stack
+#&gt; 1         gq 139787711633216 0.000170617  0.000170617  0.000000000           0
+#&gt; 2 likelihood 139787711633216 0.000959602  0.000784564  0.000175038        7169
 #&gt;   no_chain_stack autodiff_calls no_autodiff_calls
 #&gt; 1              0              0              1000
 #&gt; 2              0           7169                 1
 #&gt; 
 #&gt; [[2]]
-#&gt;         name   thread_id  total_time forward_time reverse_time chain_stack
-#&gt; 1         gq 0x101daee00 0.000393415  0.000393415  0.000000000           0
-#&gt; 2 likelihood 0x101daee00 0.001305930  0.000932404  0.000373525        7155
+#&gt;         name       thread_id  total_time forward_time reverse_time chain_stack
+#&gt; 1         gq 139786770274112 0.000175820   0.00017582  0.000000000           0
+#&gt; 2 likelihood 139786770274112 0.000887571   0.00074283  0.000144741        7502
 #&gt;   no_chain_stack autodiff_calls no_autodiff_calls
 #&gt; 1              0              0              1000
-#&gt; 2              0           7155                 1
+#&gt; 2              0           7502                 1
 #&gt; 
 #&gt; [[3]]
-#&gt;         name   thread_id  total_time forward_time reverse_time chain_stack
-#&gt; 1         gq 0x1121b1e00 0.000534289  0.000534289  0.000000000           0
-#&gt; 2 likelihood 0x1121b1e00 0.001384640  0.000993686  0.000390953        6879
+#&gt;         name       thread_id  total_time forward_time reverse_time chain_stack
+#&gt; 1         gq 140319689828160 0.000164023  0.000164023  0.000000000           0
+#&gt; 2 likelihood 140319689828160 0.000702703  0.000559452  0.000143251        6807
 #&gt;   no_chain_stack autodiff_calls no_autodiff_calls
 #&gt; 1              0              0              1000
-#&gt; 2              0           6879                 1
+#&gt; 2              0           6807                 1
 #&gt; 
 #&gt; [[4]]
-#&gt;         name   thread_id  total_time forward_time reverse_time chain_stack
-#&gt; 1         gq 0x113ecce00 0.000356809  0.000356809  0.000000000           0
-#&gt; 2 likelihood 0x113ecce00 0.001137030  0.000803924  0.000333102        6892
+#&gt;         name       thread_id  total_time forward_time reverse_time chain_stack
+#&gt; 1         gq 139766223308608 0.000178327  0.000178327  0.000000000           0
+#&gt; 2 likelihood 139766223308608 0.000724372  0.000590931  0.000133441        6892
 #&gt;   no_chain_stack autodiff_calls no_autodiff_calls
 #&gt; 1              0              0              1000
 #&gt; 2              0           6892                 1
