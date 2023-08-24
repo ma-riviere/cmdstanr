@@ -183,9 +183,10 @@ install_cmdstan <- function(dir = NULL,
       args = c("rm", wsl_tar_gz_file)
     )
   } else {
+    ex_dir <- ifelse(os_is_windows(), dir, dir_cmdstan)
     untar_rc <- utils::untar(
       dest_file,
-      exdir = dir_cmdstan,
+      exdir = ex_dir,
       extras = "--strip-components 1"
     )
     if (untar_rc != 0) {
